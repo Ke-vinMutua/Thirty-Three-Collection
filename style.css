@@ -50,7 +50,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ==================== NAVIGATION ==================== */
+/* ==================== NAVIGATION SYSTEM ==================== */
 nav {
   position: fixed;
   top: 0;
@@ -260,161 +260,8 @@ nav.scrolled {
   }
 }
 
-/* Hero Section */
-.hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding-top: 380px;
-}
+/* ==================== NAVIGATION SYSTEM END ==================== */
 
-/* Background Logo Watermark */
-.logo-watermark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 900px;
-  height: 900px;
-  opacity: 1;
-  pointer-events: none;
-  transition:
-    transform 0.8s ease-out,
-    opacity 0.8s ease-out;
-  will-change: transform;
-}
-
-.logo-watermark svg,
-.logo-watermark img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: brightness(1.8) contrast(0.8);
-}
-
-/* Content Container */
-.hero-content {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  max-width: 1600px;
-  padding: 0 80px;
-}
-
-/* Headline */
-.headline {
-  font-family: "Playfair Display", serif;
-  font-size: 140px;
-  font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -3px;
-  color: var(--navy);
-  margin-bottom: 32px;
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.4s;
-}
-
-.headline-line {
-  display: block;
-}
-
-.headline-accent {
-  color: var(--gold);
-  font-style: italic;
-}
-
-/* Subheadline */
-.subheadline {
-  font-size: 18px;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: var(--navy);
-  margin-bottom: 20px;
-  font-weight: 300;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s ease forwards 0.8s;
-}
-
-/* Watch Display Container */
-.watch-display {
-  position: relative;
-  width: 900px;
-  height: 350px;
-  margin: 0 auto 80px;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1.2s ease forwards 1s;
-}
-
-.watch-image {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
-}
-
-.watch-image.active {
-  opacity: 1;
-}
-
-.watch-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 30px 80px rgba(184, 149, 106, 0.25));
-}
-
-/* Watch Indicator Dots */
-.watch-indicators {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  margin-bottom: 80px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s ease forwards 1.4s;
-}
-
-.indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(245, 243, 240, 0.15);
-  border: 1px solid rgba(184, 149, 106, 0.4);
-  transition: all 0.4s ease;
-  cursor: pointer;
-  position: relative;
-}
-
-.indicator::after {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 1px solid var(--gold);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.indicator.active {
-  background: var(--gold);
-  border-color: var(--gold);
-  box-shadow: 0 0 20px rgba(184, 149, 106, 0.5);
-}
-
-.indicator:hover::after {
-  opacity: 1;
-}
 /* ==================== BUTTON SYSTEM ==================== */
 
 /* ===== BASE BUTTON STYLES ===== */
@@ -703,36 +550,120 @@ a.btn {
 
 /* ==================== BUTTON SYSTEM END ==================== */
 
-/* Scroll Indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
+/* ==================== HERO SECTION SYSTEM ==================== */
+/*
+  Hero Section for ThirtyThree Collection
+  
+  Structure:
+  .hero (container)
+    ├── .logo-watermark (animated background logo)
+    └── .hero-content (centered content)
+        ├── .headline (main title)
+        │   ├── .headline-line (each line)
+        │   └── .headline-accent (gold "Time" text)
+        ├── .subheadline (tagline)
+        └── .cta-button (call to action)
+  
+  Features:
+  - 80vh height (clean, not too tall)
+  - Animated headline entrance
+  - Parallax logo watermark (controlled by JS)
+  - Fully responsive
+*/
+
+/* ===== HERO CONTAINER ===== */
+.hero {
+  position: relative;
+  height: 80vh; /* Clean height, not full screen */
+  min-height: 600px; /* Minimum height for small screens */
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--off-white);
+  padding: 80px 20px 40px; /* Top padding for navbar, sides for mobile */
+}
+
+/* ===== BACKGROUND LOGO WATERMARK ===== */
+.logo-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 900px;
+  opacity: 0.06; /* Subtle background element */
+  pointer-events: none; /* Don't interfere with clicks */
+  transition:
+    transform 0.8s ease-out,
+    opacity 0.8s ease-out;
+  will-change: transform; /* Optimize for animation */
+  z-index: 1;
+}
+
+.logo-watermark svg,
+.logo-watermark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(1.8) contrast(0.8);
+}
+
+/* ===== HERO CONTENT CONTAINER ===== */
+.hero-content {
+  position: relative;
+  z-index: 10; /* Above watermark */
+  text-align: center;
+  max-width: 1400px;
+  width: 100%;
+  padding: 0 80px;
+  margin: 0 auto;
+}
+
+/* ===== HEADLINE ===== */
+.headline {
+  font-family: "Playfair Display", serif;
+  font-size: 140px;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -3px;
+  color: var(--navy);
+  margin-bottom: 32px;
+
+  /* Entrance Animation */
   opacity: 0;
-  animation:
-    fadeIn 1s ease forwards 2s,
-    float 2s ease-in-out infinite 3s;
+  transform: translateY(40px);
+  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.4s;
 }
 
-.scroll-text {
-  font-size: 11px;
-  letter-spacing: 2px;
+.headline-line {
+  display: block; /* Each line on separate line */
+}
+
+.headline-accent {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* ===== SUBHEADLINE ===== */
+.subheadline {
+  font-size: 18px;
+  letter-spacing: 6px;
   text-transform: uppercase;
-  color: rgba(245, 243, 240, 0.5);
+  color: var(--navy);
+  margin-bottom: 60px; /* Space before button */
+  font-weight: 300;
+
+  /* Entrance Animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards 0.8s;
 }
 
-.scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--gold), transparent);
-}
+/* ===== CTA BUTTON (Inherits from button system) ===== */
+/* Button animations for hero are handled in button system with .hero .cta-button */
 
-/* Animations */
+/* ===== ANIMATIONS ===== */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -746,20 +677,211 @@ a.btn {
   }
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(0);
+/* ===== RESPONSIVE - TABLET ===== */
+@media (max-width: 1200px) {
+  .hero {
+    height: 75vh;
+    min-height: 550px;
   }
-  50% {
-    transform: translateX(-50%) translateY(-10px);
+
+  .headline {
+    font-size: 100px;
+    letter-spacing: -2px;
+  }
+
+  .logo-watermark {
+    width: 700px;
+    height: 700px;
   }
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
+  .hero {
+    height: 70vh;
+    min-height: 500px;
+    padding: 80px 40px 40px;
+  }
+
+  .hero-content {
+    padding: 0 40px;
+  }
+
   .headline {
-    font-size: 100px;
+    font-size: 80px;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+  }
+
+  .subheadline {
+    font-size: 16px;
+    letter-spacing: 5px;
+    margin-bottom: 50px;
+  }
+
+  .logo-watermark {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+/* ===== RESPONSIVE - MOBILE ===== */
+@media (max-width: 768px) {
+  .hero {
+    height: 65vh;
+    min-height: 450px;
+    padding: 70px 24px 30px;
+  }
+
+  .hero-content {
+    padding: 0 24px;
+  }
+
+  .headline {
+    font-size: 64px;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .subheadline {
+    font-size: 14px;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+  }
+
+  .logo-watermark {
+    width: 500px;
+    height: 500px;
+    opacity: 0.04; /* Even more subtle on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 60vh;
+    min-height: 400px;
+    padding: 60px 16px 20px;
+  }
+
+  .hero-content {
+    padding: 0 16px;
+  }
+
+  .headline {
+    font-size: 48px;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+
+  .subheadline {
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 32px;
+  }
+
+  .logo-watermark {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+/* ===== LANDSCAPE MODE (for short screens) ===== */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 100px 40px 60px;
+  }
+
+  .headline {
+    font-size: 60px;
+    margin-bottom: 16px;
+  }
+
+  .subheadline {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+}
+
+/* ==================== HERO SECTION SYSTEM END ==================== */
+
+/* ==================== WATCH SHOWCASE SECTION ==================== */
+/*
+  Watch Showcase Section for ThirtyThree Collection
+  
+  Structure:
+  .watch-showcase (section container)
+    └── .watch-showcase-container (content wrapper)
+        └── .watch-display (watch carousel)
+            └── .watch-image (individual watch)
+                └── img (watch image)
+  
+  Features:
+  - Displays 3 rotating watches (Black, Blue, Brown)
+  - Switches automatically on scroll (controlled by JS)
+  - Smooth fade transitions between watches
+  - Fully responsive
+  - No navigation dots (removed)
+*/
+
+/* ===== SHOWCASE SECTION CONTAINER ===== */
+.watch-showcase {
+  background: var(--off-white);
+  padding: 80px 60px 120px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ===== CONTENT WRAPPER ===== */
+.watch-showcase-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ===== WATCH DISPLAY CONTAINER ===== */
+.watch-display {
+  position: relative;
+  width: 900px;
+  height: 350px;
+  margin: 0 auto;
+
+  /* Entrance Animation */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.2s ease forwards 0.3s;
+}
+
+/* ===== INDIVIDUAL WATCH IMAGE ===== */
+.watch-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none; /* Don't interfere with clicks */
+}
+
+/* Active watch is visible */
+.watch-image.active {
+  opacity: 1;
+}
+
+/* ===== WATCH IMAGE STYLING ===== */
+.watch-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 80px rgba(184, 149, 106, 0.25));
+}
+
+/* ===== RESPONSIVE - TABLET ===== */
+@media (max-width: 1200px) {
+  .watch-showcase {
+    padding: 60px 40px 100px;
   }
 
   .watch-display {
@@ -768,23 +890,352 @@ a.btn {
   }
 }
 
+@media (max-width: 900px) {
+  .watch-showcase {
+    padding: 50px 30px 80px;
+  }
+
+  .watch-display {
+    width: 600px;
+    height: 250px;
+  }
+}
+
+/* ===== RESPONSIVE - MOBILE ===== */
 @media (max-width: 768px) {
-  .headline {
-    font-size: 64px;
-    letter-spacing: -1px;
+  .watch-showcase {
+    padding: 40px 24px 60px;
   }
 
   .watch-display {
     width: 90%;
     height: 200px;
   }
+}
 
-  .hero-content {
-    padding: 0 24px;
+@media (max-width: 480px) {
+  .watch-showcase {
+    padding: 30px 16px 50px;
+  }
+
+  .watch-display {
+    width: 100%;
+    height: 180px;
+  }
+
+  .watch-image img {
+    filter: drop-shadow(0 20px 50px rgba(184, 149, 106, 0.2));
   }
 }
 
-/* ==================== SHOP SECTION ==================== */
+/* ===== LANDSCAPE MODE ===== */
+@media (max-height: 600px) and (orientation: landscape) {
+  .watch-showcase {
+    padding: 40px 40px 60px;
+  }
+
+  .watch-display {
+    width: 600px;
+    height: 200px;
+  }
+}
+
+/* ==================== WATCH SHOWCASE SECTION END ==================== */
+
+/* ==================== IMAGE SYSTEM ==================== */
+/*
+  Global Image Handling for ThirtyThree Collection
+  
+  Rules:
+  - All images contained within parent
+  - No overflow
+  - Consistent object-fit behavior
+  - Responsive by default
+*/
+
+/* ===== BASE IMAGE STYLES ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== CONTAINER IMAGES (Product cards, galleries, etc.) ===== */
+.watch-card-image img,
+.product-image img,
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Shows full image, no crop */
+  object-position: center;
+}
+
+/* ===== COVER IMAGES (Hero backgrounds, banners) ===== */
+.hero-image img,
+.banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fills container, may crop */
+  object-position: center;
+}
+
+/* ===== PREVENT OVERFLOW ===== */
+.watch-card-image,
+.product-image,
+.gallery-image,
+.hero-image,
+.banner-image {
+  overflow: hidden;
+  position: relative;
+}
+
+/* ==================== IMAGE SYSTEM END ==================== */
+
+/* ==================== SHOP CARD SYSTEM ==================== */
+/*
+  Watch Product Card Component
+  
+  Structure:
+  .watch-card
+    ├── .watch-card-image
+    │   ├── img.main-image (default visible)
+    │   └── img.hover-image (shows on hover)
+    └── .watch-card-info
+        ├── .watch-name
+        └── .watch-specs
+            ├── .watch-type
+            └── .watch-variants
+  
+  Features:
+  - Image swap on hover
+  - Lift effect on hover
+  - Clean typography
+  - Fully responsive
+*/
+
+/* ===== CARD CONTAINER ===== */
+.watch-card {
+  background: rgba(245, 243, 240, 0.03);
+  border: 1px solid rgba(245, 243, 240, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Entrance Animation */
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Stagger animation delays for cards */
+.watch-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.watch-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.watch-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.watch-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.watch-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.watch-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* Hover Effect */
+.watch-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(184, 149, 106, 0.3);
+  box-shadow: 0 20px 60px rgba(184, 149, 106, 0.15);
+  background: rgba(245, 243, 240, 0.05);
+}
+
+/* ===== IMAGE CONTAINER ===== */
+.watch-card-image {
+  position: relative;
+  background: #dedede;
+  padding: 48px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  overflow: hidden; /* Critical: prevents image overflow */
+}
+
+/* ===== IMAGE STYLES ===== */
+.watch-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Shows full watch, no crop */
+  object-position: center;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.3));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Main image visible by default */
+.watch-card-image .main-image {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Hover image hidden by default */
+.watch-card-image .hover-image {
+  opacity: 0;
+  z-index: 2;
+}
+
+/* Image Swap on Hover */
+.watch-card:hover .main-image {
+  opacity: 0;
+}
+
+.watch-card:hover .hover-image {
+  opacity: 1;
+}
+
+/* Subtle zoom on hover */
+.watch-card:hover .watch-card-image img {
+  transform: scale(1.05);
+}
+
+/* ===== INFO SECTION ===== */
+.watch-card-info {
+  padding: 28px 32px;
+}
+
+/* Watch Name */
+.watch-name {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 12px;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.watch-card:hover .watch-name {
+  color: var(--gold);
+}
+
+/* Specs Row */
+.watch-specs {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--navy);
+  letter-spacing: 1px;
+}
+
+.watch-type {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.watch-variants {
+  position: relative;
+  padding-left: 12px;
+}
+
+/* Separator Line */
+.watch-variants::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 12px;
+  background: rgba(26, 35, 50, 0.3);
+}
+
+/* ===== RESPONSIVE - TABLET ===== */
+@media (max-width: 1200px) {
+  .watch-card-image {
+    min-height: 280px;
+    padding: 40px 28px;
+  }
+
+  .watch-name {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 900px) {
+  .watch-card-image {
+    min-height: 260px;
+    padding: 36px 24px;
+  }
+
+  .watch-card-info {
+    padding: 24px 28px;
+  }
+}
+
+/* ===== RESPONSIVE - MOBILE ===== */
+@media (max-width: 768px) {
+  .watch-card-image {
+    min-height: 280px;
+    padding: 36px 24px;
+  }
+
+  .watch-card-info {
+    padding: 24px;
+  }
+
+  .watch-name {
+    font-size: 18px;
+  }
+
+  .watch-specs {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .watch-card-image {
+    min-height: 240px;
+    padding: 32px 20px;
+  }
+
+  .watch-card-info {
+    padding: 20px;
+  }
+
+  .watch-name {
+    font-size: 17px;
+  }
+}
+
+/* ==================== SHOP CARD SYSTEM END ==================== */
+
+/* ==================== SHOP SECTION LAYOUT ==================== */
+/*
+  Shop Section Container & Grid System
+  
+  Structure:
+  .shop-section
+    └── .shop-container
+        ├── .section-header
+        │   ├── .section-title
+        │   └── .section-subtitle
+        ├── .watch-grid (3 columns)
+        │   └── .watch-card (handled by card system)
+        └── .shop-cta
+            └── button
+*/
+
+/* ===== SECTION CONTAINER ===== */
 .shop-section {
   background: var(--off-white);
   padding: 120px 60px;
@@ -796,7 +1247,7 @@ a.btn {
   margin: 0 auto;
 }
 
-/* Section Header */
+/* ===== SECTION HEADER ===== */
 .section-header {
   text-align: center;
   margin-bottom: 80px;
@@ -818,11 +1269,11 @@ a.btn {
   font-size: 16px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: rgba(58, 58, 58, 0.5);
+  color: rgba(26, 35, 50, 0.5);
   font-weight: 300;
 }
 
-/* Watch Grid */
+/* ===== WATCH GRID (3 COLUMNS) ===== */
 .watch-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -830,145 +1281,7 @@ a.btn {
   margin-bottom: 80px;
 }
 
-/* Watch Card */
-.watch-card {
-  background: rgba(245, 243, 240, 0.03);
-  border: 1px solid rgba(245, 243, 240, 0.08);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-.watch-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.watch-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.watch-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.watch-card:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-.watch-card:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-.watch-card:nth-child(6) {
-  animation-delay: 0.6s;
-}
-
-.watch-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(184, 149, 106, 0.3);
-  box-shadow: 0 20px 60px rgba(184, 149, 106, 0.15);
-  background: rgba(245, 243, 240, 0.05);
-}
-
-/* Watch Card Image Container */
-.watch-card-image {
-  position: relative;
-  background: rgb(222, 222, 222);
-  padding: 48px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 320px;
-}
-
-.watch-card-image img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.3));
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: absolute;
-  top: 5;
-  left: 0;
-}
-
-.watch-card-image .main-image {
-  opacity: 1;
-  transition: opacity 0.4s ease;
-}
-
-.watch-card-image .hover-image {
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.watch-card:hover .main-image {
-  opacity: 0;
-}
-
-.watch-card:hover .hover-image {
-  opacity: 1;
-}
-.watch-card:hover .watch-card-image img {
-  transform: scale(1.05);
-}
-
-/* Watch Card Info */
-.watch-card-info {
-  padding: 28px 32px;
-}
-
-.watch-name {
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--navy);
-  margin-bottom: 12px;
-  line-height: 1.3;
-  transition: color 0.3s ease;
-}
-
-.watch-card:hover .watch-name {
-  color: var(--gold);
-}
-
-.watch-specs {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  font-size: 13px;
-  color: rgba(245, 243, 240, 0.6);
-  letter-spacing: 1px;
-}
-
-.watch-type {
-  text-transform: uppercase;
-  font-weight: 400;
-  color: var(--navy);
-}
-
-.watch-variants {
-  position: relative;
-  padding-left: 12px;
-  color: var(--navy);
-}
-
-.watch-variants::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 12px;
-  background: rgba(245, 243, 240, 0.3);
-}
-
-/* Shop CTA */
+/* ===== CTA SECTION ===== */
 .shop-cta {
   text-align: center;
   opacity: 0;
@@ -976,7 +1289,7 @@ a.btn {
   animation: fadeInUp 1s ease forwards 0.8s;
 }
 
-/* Responsive Design for Shop Section */
+/* ===== RESPONSIVE - TABLET ===== */
 @media (max-width: 1200px) {
   .shop-section {
     padding: 100px 40px;
@@ -1002,6 +1315,7 @@ a.btn {
   }
 }
 
+/* ===== RESPONSIVE - MOBILE ===== */
 @media (max-width: 768px) {
   .shop-section {
     padding: 80px 24px;
@@ -1024,17 +1338,20 @@ a.btn {
     grid-template-columns: 1fr;
     gap: 28px;
   }
+}
 
-  .watch-card-image {
-    min-height: 280px;
-    padding: 36px 24px;
+@media (max-width: 480px) {
+  .shop-section {
+    padding: 60px 16px;
   }
 
-  .watch-card-info {
-    padding: 24px;
+  .section-title {
+    font-size: 32px;
   }
 
-  .watch-name {
-    font-size: 18px;
+  .section-subtitle {
+    font-size: 12px;
   }
 }
+
+/* ==================== SHOP SECTION LAYOUT END ==================== */
