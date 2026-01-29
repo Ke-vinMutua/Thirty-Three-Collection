@@ -50,6 +50,274 @@ body {
   overflow-x: hidden;
 }
 
+/* ==================== TYPOGRAPHY SYSTEM ==================== */
+/*
+  Typography System for ThirtyThree Collection
+  
+  Font Families:
+  - Playfair Display (serif) - Headlines, luxury feel
+  - Cormorant Garamond (serif) - Body text, elegant
+  
+  Hierarchy:
+  h1 = Hero headlines (140px)
+  h2 = Section titles (64px)
+  h3 = Card/product titles (20px)
+  h4 = Subsection titles (24px)
+  h5 = Small headings (18px)
+  h6 = Tiny headings (16px)
+  
+  Body = 16px base
+  Small = 13-14px
+  Tiny = 11-12px
+*/
+
+/* ===== HEADING STYLES ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--navy);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--fs-8xl); /* 140px */
+  letter-spacing: -3px;
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: var(--fs-6xl); /* 64px */
+  letter-spacing: -1px;
+}
+
+h3 {
+  font-size: var(--fs-xl); /* 20px */
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+h4 {
+  font-size: var(--fs-2xl); /* 24px */
+  font-weight: 600;
+}
+
+h5 {
+  font-size: var(--fs-lg); /* 18px */
+  font-weight: 600;
+}
+
+h6 {
+  font-size: var(--fs-base); /* 16px */
+  font-weight: 600;
+}
+
+/* ===== BODY TEXT ===== */
+p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: var(--fs-base);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--navy);
+  margin: 0;
+}
+
+/* ===== TEXT UTILITIES ===== */
+
+/* Display Text (Extra large) */
+.text-display {
+  font-family: "Playfair Display", serif;
+  font-size: var(--fs-8xl);
+  font-weight: 700;
+  letter-spacing: -3px;
+  line-height: 0.95;
+}
+
+/* Title Text (Section headers) */
+.text-title {
+  font-family: "Playfair Display", serif;
+  font-size: var(--fs-6xl);
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+/* Subtitle Text (Under section headers) */
+.text-subtitle {
+  font-size: var(--fs-base);
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(26, 35, 50, 0.5);
+}
+
+/* Body Large */
+.text-lg {
+  font-size: var(--fs-lg);
+  line-height: 1.6;
+}
+
+/* Body Small */
+.text-sm {
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+
+/* Body Tiny */
+.text-xs {
+  font-size: var(--fs-xs);
+  line-height: 1.4;
+}
+
+/* Uppercase Label */
+.text-label {
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Italic Accent */
+.text-accent {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ===== FONT WEIGHT UTILITIES ===== */
+.font-light {
+  font-weight: var(--fw-light);
+}
+.font-regular {
+  font-weight: var(--fw-regular);
+}
+.font-medium {
+  font-weight: var(--fw-medium);
+}
+.font-semibold {
+  font-weight: var(--fw-semibold);
+}
+.font-bold {
+  font-weight: var(--fw-bold);
+}
+
+/* ===== COLOR UTILITIES ===== */
+.text-navy {
+  color: var(--navy);
+}
+.text-gold {
+  color: var(--gold);
+}
+.text-cream {
+  color: var(--cream);
+}
+.text-midnight {
+  color: var(--midnight);
+}
+.text-muted {
+  color: rgba(26, 35, 50, 0.6);
+}
+
+/* ===== ALIGNMENT UTILITIES ===== */
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+/* ===== RESPONSIVE TYPOGRAPHY ===== */
+
+@media (max-width: 1200px) {
+  h1,
+  .text-display {
+    font-size: 100px;
+    letter-spacing: -2px;
+  }
+
+  h2,
+  .text-title {
+    font-size: 52px;
+  }
+}
+
+@media (max-width: 900px) {
+  h1,
+  .text-display {
+    font-size: 80px;
+    letter-spacing: -1.5px;
+  }
+
+  h2,
+  .text-title {
+    font-size: 44px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1,
+  .text-display {
+    font-size: 64px;
+    letter-spacing: -1px;
+  }
+
+  h2,
+  .text-title {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .text-subtitle {
+    font-size: 13px;
+    letter-spacing: 3px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1,
+  .text-display {
+    font-size: 48px;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+
+  h2,
+  .text-title {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 17px;
+  }
+
+  .text-subtitle {
+    font-size: 12px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+/* ==================== TYPOGRAPHY SYSTEM END ==================== */
+
 /* ==================== NAVIGATION SYSTEM ==================== */
 nav {
   position: fixed;
@@ -60,16 +328,20 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 60px;
-  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.95), transparent);
+  padding: 20px 60px; /* Increased from 16px to 20px */
+  background: rgba(10, 10, 10, 0.85);
   backdrop-filter: blur(10px);
   transition: all 0.4s ease;
+  border: none; /* Add this */
+  border-bottom: none;
 }
 
 nav.scrolled {
   background: rgba(10, 10, 10, 0.98);
-  padding: 12px 60px;
+  padding: 16px 60px; /* Increased from 12px to 16px */
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  border: none; /* Add this */
+  border-bottom: none;
 }
 
 .logo-nav {
@@ -182,11 +454,13 @@ nav.scrolled {
 
 @media (max-width: 768px) {
   nav {
-    padding: 16px 24px;
+    padding: 20px 24px; /* Increased from 16px */
+    border: none;
   }
 
   nav.scrolled {
-    padding: 12px 24px;
+    padding: 16px 24px; /* Increased from 12px */
+    border: none;
   }
 
   .logo-nav {
@@ -211,7 +485,7 @@ nav.scrolled {
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0;
-    border-top: 1px solid rgba(184, 149, 106, 0.1);
+    border-top: none;
   }
 
   .nav-links.active {
@@ -1059,7 +1333,7 @@ img {
 /* ===== IMAGE CONTAINER ===== */
 .watch-card-image {
   position: relative;
-  background: #dedede;
+  background: rgb(222, 222, 222);
   padding: 48px 32px;
   display: flex;
   align-items: center;
@@ -1079,6 +1353,10 @@ img {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.watch-card-image .hover-image {
+  object-fit: cover; /* Fills container, crops if needed */
 }
 
 /* Main image visible by default */
@@ -1355,3 +1633,182 @@ img {
 }
 
 /* ==================== SHOP SECTION LAYOUT END ==================== */
+
+/* ==================== ABOUT SECTION ==================== */
+/*
+  About Section for ThirtyThree Collection
+  
+  Structure:
+  .about-section
+    └── .about-container
+        └── .about-content
+            ├── .about-title
+            ├── .about-text
+            │   ├── .about-lead
+            │   └── p (paragraphs)
+            └── .about-fund
+                ├── .fund-title
+                └── .fund-description
+*/
+
+/* ===== SECTION CONTAINER ===== */
+.about-section {
+  background: var(--cream);
+  padding: 120px 60px;
+  position: relative;
+}
+
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ===== CONTENT WRAPPER ===== */
+.about-content {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards 0.2s;
+}
+
+/* ===== TITLE ===== */
+.about-title {
+  font-family: "Playfair Display", serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 60px;
+  letter-spacing: -1px;
+}
+
+/* ===== TEXT CONTENT ===== */
+.about-text {
+  margin-bottom: 60px;
+}
+
+.about-lead {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--navy);
+  margin-bottom: 32px;
+}
+
+.about-text p {
+  font-size: 20px;
+  line-height: 1.8;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== THE 33 FUND SECTION ===== */
+.about-fund {
+  background: rgba(184, 149, 106, 0.08);
+  border-left: 3px solid var(--gold);
+  padding: 40px 48px;
+  border-radius: 4px;
+}
+
+.fund-title {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 16px;
+  letter-spacing: 0;
+}
+
+.fund-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--navy);
+  margin: 0;
+}
+
+/* ===== RESPONSIVE - TABLET ===== */
+@media (max-width: 1200px) {
+  .about-section {
+    padding: 100px 40px;
+  }
+
+  .about-title {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-section {
+    padding: 80px 40px;
+  }
+
+  .about-title {
+    font-size: 38px;
+    margin-bottom: 48px;
+  }
+
+  .about-lead {
+    font-size: 18px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+  }
+}
+
+/* ===== RESPONSIVE - MOBILE ===== */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 60px 24px;
+  }
+
+  .about-container {
+    max-width: 100%;
+  }
+
+  .about-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .about-lead {
+    font-size: 17px;
+    margin-bottom: 24px;
+  }
+
+  .about-text p {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .about-fund {
+    padding: 32px 28px;
+  }
+
+  .fund-title {
+    font-size: 20px;
+  }
+
+  .fund-description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 50px 16px;
+  }
+
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-fund {
+    padding: 24px 20px;
+  }
+}
+
+/* ==================== ABOUT SECTION END ==================== */
