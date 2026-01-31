@@ -1,108 +1,179 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // ==================== NAVIGATION SYSTEM ====================
+  const CONFIG = {
+    HERO_FRAMES: 94,
+    LOGO_SCROLL_THRESHOLD: 50,
+    WATCH_SWITCH_INTERVALS: [400, 800],
+  };
 
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
+  const elements = {
+    topLogoBrand: document.getElementById("topLogoBrand"),
+    logoWatermark: document.getElementById("logoWatermark"),
+    heroWatchSequence: document.getElementById("heroWatchSequence"),
+    watchSequenceSection: document.getElementById("watchSequence"),
+    watchShowcaseSection: document.querySelector(".watch-showcase"),
+    watchImages: document.querySelectorAll(".watch-image"),
+  };
 
-  if (menuToggle && navLinks) {
-    // Toggle menu on hamburger click
-    menuToggle.addEventListener("click", () => {
-      menuToggle.classList.toggle("active");
-      navLinks.classList.toggle("active");
-    });
-
-    // Close menu when any nav link is clicked
-    document.querySelectorAll(".nav-links a").forEach((link) => {
-      link.addEventListener("click", () => {
-        menuToggle.classList.remove("active");
-        navLinks.classList.remove("active");
-      });
-    });
-  }
-
-  const navbar = document.getElementById("navbar");
-
-  // ==================== WATCH SHOWCASE SYSTEM ====================
-
-  const watches = document.querySelectorAll(".watch-image");
-  const logoWatermark = document.getElementById("logoWatermark");
   let currentWatch = 0;
 
-  /**
-   * Switch to a specific watch by index
-   * @param {number} index - Watch index (0, 1, or 2)
-   */
+  function getFrameFilename(frameNumber) {
+    const paddedNumber = String(frameNumber).padStart(2, "0");
+    return `Assets/ThirtyThree ImageSequence/frame_${paddedNumber}_delay-0.05s.webp`;
+  }
+
+  function preloadFrames() {
+    for (let i = 0; i < CONFIG.HERO_FRAMES; i++) {
+      const img = new Image();
+      img.src = getFrameFilename(i);
+    }
+  }
+
+  function getWatchSequenceProgress() {
+    if (!elements.watchSequenceSection) return 0;
+
+    const rect = elements.watchSequenceSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const sectionHeight = elements.watchSequenceSection.offsetHeight;
+
+    if (rect.top > windowHeight) return 0;
+    if (rect.bottom < 0) return 1;
+
+    const offset = 300;
+    const scrolled = windowHeight - rect.top - offset;
+    const totalScrollable = sectionHeight + windowHeight;
+    const progress = scrolled / totalScrollable;
+
+    return Math.max(0, Math.min(1, progress));
+  }
+
   function switchWatch(index) {
-    if (index < 0 || index >= watches.length || index === currentWatch) return;
+    if (
+      index < 0 ||
+      index >= elements.watchImages.length ||
+      index === currentWatch
+    ) {
+      return;
+    }
 
-    // Hide current watch
-    watches[currentWatch].classList.remove("active");
+    if (elements.watchImages[currentWatch]) {
+      elements.watchImages[currentWatch].classList.remove("active");
+    }
 
-    // Show new watch
-    watches[index].classList.add("active");
+    if (elements.watchImages[index]) {
+      elements.watchImages[index].classList.add("active");
+    }
 
-    // Update current index
     currentWatch = index;
   }
 
-  // ==================== SCROLL EFFECTS ====================
+  function getShowcaseScrollPosition() {
+    if (!elements.watchShowcaseSection) return -1;
+
+    const showcaseTop = elements.watchShowcaseSection.offsetTop;
+    const currentScroll = window.scrollY;
+
+    return currentScroll - showcaseTop;
+  }
+
+  function updateTopLogo(scrollY) {
+    if (!elements.topLogoBrand) return;
+
+    if (scrollY > CONFIG.LOGO_SCROLL_THRESHOLD) {
+      elements.topLogoBrand.classList.add("scrolled");
+    } else {
+      elements.topLogoBrand.classList.remove("scrolled");
+    }
+  }
+
+  function updateWatchSequence(progress) {
+    if (!elements.heroWatchSequence) return;
+
+    const currentFrame = Math.floor(progress * (CONFIG.HERO_FRAMES - 1));
+    const framePath = getFrameFilename(currentFrame);
+
+    if (elements.heroWatchSequence.src.indexOf(framePath) === -1) {
+      elements.heroWatchSequence.src = framePath;
+    }
+  }
+
+  function updateLogoWatermark(scrollY) {
+    if (!elements.logoWatermark) return;
+
+    const scaleValue = 1 + scrollY * 0.0003;
+    const rotateValue = scrollY * 0.05;
+    const opacityValue = Math.max(0.06 - scrollY * 0.00008, 0);
+
+    elements.logoWatermark.style.transform = `translate(-50%, -50%) scale(${scaleValue}) rotate(${rotateValue}deg)`;
+    elements.logoWatermark.style.opacity = opacityValue;
+  }
+
+  function updateWatchShowcase() {
+    if (elements.watchImages.length === 0) return;
+
+    const showcaseScroll = getShowcaseScrollPosition();
+
+    if (showcaseScroll < 0) {
+      if (currentWatch !== 0) {
+        switchWatch(0);
+      }
+      return;
+    }
+
+    const [interval1, interval2] = CONFIG.WATCH_SWITCH_INTERVALS;
+
+    if (showcaseScroll < interval1) {
+      switchWatch(0);
+    } else if (showcaseScroll >= interval1 && showcaseScroll < interval2) {
+      switchWatch(1);
+    } else if (showcaseScroll >= interval2) {
+      switchWatch(2);
+    }
+  }
+
+  let ticking = false;
 
   window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
 
-    // 1. Navbar Scroll Effect
-    if (navbar) {
-      if (scrollY > 50) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
-    }
+        updateTopLogo(scrollY);
 
-    // 2. Logo Watermark Parallax Effect
-    if (logoWatermark) {
-      logoWatermark.style.transform = `translate(-50%, -50%) scale(${
-        1 + scrollY * 0.0003
-      }) rotate(${scrollY * 0.05}deg)`;
-      logoWatermark.style.opacity = Math.max(0.06 - scrollY * 0.00008, 0);
-    }
+        const sequenceProgress = getWatchSequenceProgress();
+        updateWatchSequence(sequenceProgress);
 
-    // 3. Watch Switching Based on Scroll Position
-    // Adjusted thresholds for new hero height (80vh)
-    if (watches.length > 0) {
-      if (scrollY < 400) {
-        switchWatch(0); // Black watch
-      } else if (scrollY >= 400 && scrollY < 800) {
-        switchWatch(1); // Blue watch
-      } else if (scrollY >= 800) {
-        switchWatch(2); // Brown watch
-      }
+        updateLogoWatermark(scrollY);
+
+        updateWatchShowcase();
+
+        ticking = false;
+      });
+
+      ticking = true;
     }
   });
-
-  // ==================== MOUSE PARALLAX EFFECT ====================
 
   document.addEventListener("mousemove", (e) => {
-    if (logoWatermark) {
-      const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
-      const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+    if (!elements.logoWatermark) return;
 
-      logoWatermark.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) scale(${
-        1 + window.scrollY * 0.0003
-      }) rotate(${window.scrollY * 0.05}deg)`;
-    }
+    const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+    const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+
+    const scrollY = window.scrollY;
+    const scaleValue = 1 + scrollY * 0.0003;
+    const rotateValue = scrollY * 0.05;
+
+    elements.logoWatermark.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) scale(${scaleValue}) rotate(${rotateValue}deg)`;
   });
 
-  // ==================== SMOOTH SCROLL ====================
-
-  /**
-   * Smooth Scroll for Anchor Links
-   * Enables smooth scrolling for all internal anchor links (#shop, #about, etc.)
-   */
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
+      const targetId = this.getAttribute("href");
+
+      if (targetId === "#") return;
+
+      const target = document.querySelector(targetId);
 
       if (target) {
         target.scrollIntoView({
@@ -113,29 +184,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ==================== SHOP SECTION ====================
-
   document.querySelectorAll(".watch-card").forEach((card) => {
     card.addEventListener("click", function () {
       const watchName = this.querySelector(".watch-name")?.textContent;
-
-      // For now, just log
       console.log("Watch card clicked:", watchName);
     });
   });
 
-  // ==================== INITIALIZATION ====================
-
   function init() {
-    // Set first watch as active if none are active
-    if (watches.length > 0 && !document.querySelector(".watch-image.active")) {
-      watches[0].classList.add("active");
+    if (elements.heroWatchSequence) {
+      elements.heroWatchSequence.src = getFrameFilename(0);
+      preloadFrames();
     }
 
-    // Log initialization (remove in production)
-    console.log("ThirtyThree Collection - Scripts Initialized ✓");
+    if (elements.watchImages.length > 0) {
+      const hasActiveWatch = Array.from(elements.watchImages).some((watch) =>
+        watch.classList.contains("active"),
+      );
+
+      if (!hasActiveWatch) {
+        elements.watchImages[0].classList.add("active");
+        currentWatch = 0;
+      } else {
+        elements.watchImages.forEach((watch, index) => {
+          if (watch.classList.contains("active")) {
+            currentWatch = index;
+          }
+        });
+      }
+    }
+
+    console.log("ThirtyThree Collection - Initialized");
   }
 
-  // Run initialization
   init();
-}); // End of DOMContentLoaded
+  window.dispatchEvent(new Event("scroll"));
+});

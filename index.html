@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary Meta Tags -->
     <title>
       ThirtyThree Collection | Luxury African Timepieces | Mechanical Watches
     </title>
@@ -23,10 +22,8 @@
     <meta name="author" content="ThirtyThree Collection" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://thirtythreecollection.com/" />
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://thirtythreecollection.com/" />
     <meta
@@ -46,7 +43,6 @@
     <meta property="og:site_name" content="ThirtyThree Collection" />
     <meta property="og:locale" content="en_US" />
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://thirtythreecollection.com/" />
     <meta
@@ -63,11 +59,9 @@
     />
     <meta name="twitter:creator" content="@thirtythreecollection" />
 
-    <!-- Additional SEO Tags -->
     <meta name="theme-color" content="#0a0a0a" />
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- Favicon -->
     <link
       rel="icon"
       type="image/x-icon"
@@ -75,20 +69,16 @@
     />
     <link rel="apple-touch-icon" href="/Assets/apple-touch-icon.png" />
 
-    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css" />
 
-    <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -118,46 +108,58 @@
     </script>
   </head>
   <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-      <a href="#" class="logo-nav">Thirty Three</a>
-      <button class="menu-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#shop">Shop</a></li>
-      </ul>
-    </nav>
+    <div class="top-logo-brand" id="topLogoBrand">
+      <a href="#home" class="brand-logo-link">
+        <img
+          src="Assets/logo text - rexton.svg"
+          alt="ThirtyThree Collection"
+          class="brand-logo"
+        />
+      </a>
+    </div>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
-      <!-- Background Logo Watermark -->
       <div class="logo-watermark" id="logoWatermark">
-        <img src="Assets/Brand Logo - 1.svg" alt="ThirtyThree Logo" />
+        <img src="Assets/Logomark NC - 1.png" alt="ThirtyThree Logo" />
       </div>
 
-      <!-- Hero Content -->
-      <div class="hero-content">
-        <h1 class="headline">
-          <span class="headline-line">It's About</span>
-          <span class="headline-line headline-accent">Time</span>
-        </h1>
+      <div class="hero-label hero-label-top-left">
+        <span>AUTOMATIC</span>
+        <span>WINDING</span>
+        <span>MICRO-ROTOR</span>
+      </div>
 
-        <p class="subheadline">Timeless African Craftsmanship</p>
+      <div class="hero-label hero-label-top-right">
+        <span>IN-HOUSE</span>
+        <span>MOVEMENT</span>
+        <span>ARCHITECTURE</span>
+      </div>
 
-        <!-- CTA Button -->
-        <a href="#shop" class="cta-button">Explore Collection</a>
+      <div class="hero-label hero-label-bottom-right">
+        <span>PRECISION</span>
+        <span>TIME</span>
+        <span>ARCHITECTURE</span>
+      </div>
+
+      <div class="hero-headline" id="heroHeadline">
+        <span class="headline-line">It's about</span>
+        <span class="headline-accent">time</span>
       </div>
     </section>
 
-    <!-- Watch Showcase Section (NEW) -->
-    <section class="watch-showcase">
+    <section class="watch-sequence-section" id="watchSequence">
+      <div class="watch-sequence-container">
+        <img
+          id="heroWatchSequence"
+          src="Assets/ThirtyThree ImageSequence/frame_00_delay-0.05s.webp"
+          alt="ThirtyThree Watch"
+          class="watch-sequence-image"
+        />
+      </div>
+    </section>
+
+    <!-- <section class="watch-showcase">
       <div class="watch-showcase-container">
-        <!-- Watch Display -->
         <div class="watch-display">
           <div class="watch-image active" data-watch="0">
             <img
@@ -178,10 +180,8 @@
       </div>
     </section>
 
-    <!-- About Section -->
     <section class="about-section" id="about">
       <div class="about-container">
-        <!-- About Content -->
         <div class="about-content">
           <h2 class="about-title">Where Time Meets Heritage</h2>
 
@@ -210,7 +210,6 @@
             </p>
           </div>
 
-          <!-- The 33 Fund -->
           <div class="about-fund">
             <h3 class="fund-title">The 33 Fund</h3>
             <p class="fund-description">
@@ -222,12 +221,10 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <!-- Shop Section -->
     <section class="shop-section" id="shop">
       <div class="shop-container">
-        <!-- Section Header -->
         <div class="section-header">
           <h2 class="section-title">The Collection</h2>
           <p class="section-subtitle">
@@ -235,18 +232,14 @@
           </p>
         </div>
 
-        <!-- Watch Grid -->
         <div class="watch-grid">
-          <!-- Row 1 -->
           <div class="watch-card">
             <div class="watch-card-image">
-              <!-- Main image -->
               <img
                 src="Assets/Black men front 02.png"
                 alt="ThirtyThree Heritage Black"
                 class="main-image"
               />
-              <!-- Hover image -->
               <img
                 src="Assets/Black men hover 01.png"
                 alt="ThirtyThree Heritage Black Side View"
@@ -264,16 +257,14 @@
 
           <div class="watch-card">
             <div class="watch-card-image">
-              <!-- Main image -->
               <img
                 src="Assets/Blue men front 02.png"
-                alt="ThirtyThree Heritage Black"
+                alt="ThirtyThree Heritage Blue"
                 class="main-image"
               />
-              <!-- Hover image -->
               <img
                 src="Assets/Blue men hover 01.png"
-                alt="ThirtyThree Heritage Black Side View"
+                alt="ThirtyThree Heritage Blue Side View"
                 class="hover-image"
               />
             </div>
@@ -288,16 +279,14 @@
 
           <div class="watch-card">
             <div class="watch-card-image">
-              <!-- Main image -->
               <img
                 src="Assets/Brown men front 02.png"
-                alt="ThirtyThree Heritage Black"
+                alt="ThirtyThree Heritage Brown"
                 class="main-image"
               />
-              <!-- Hover image -->
               <img
                 src="Assets/Brown men hover 01.png"
-                alt="ThirtyThree Heritage Black Side View"
+                alt="ThirtyThree Heritage Brown Side View"
                 class="hover-image"
               />
             </div>
@@ -310,18 +299,15 @@
             </div>
           </div>
 
-          <!-- Row 2 -->
           <div class="watch-card">
             <div class="watch-card-image">
-              <!-- Main image -->
               <img
-                src="Assets/Black men front 02.png"
+                src="Assets/Black women front 02.png"
                 alt="ThirtyThree Heritage Black"
                 class="main-image"
               />
-              <!-- Hover image -->
               <img
-                src="Assets/Black men hover 01.png"
+                src="Assets/Black women hover 01.png"
                 alt="ThirtyThree Heritage Black Side View"
                 class="hover-image"
               />
@@ -337,16 +323,14 @@
 
           <div class="watch-card">
             <div class="watch-card-image">
-              <!-- Main image -->
               <img
-                src="Assets/Blue men front 02.png"
-                alt="ThirtyThree Heritage Black"
+                src="Assets/Blue women front 02.png"
+                alt="ThirtyThree Heritage Blue"
                 class="main-image"
               />
-              <!-- Hover image -->
               <img
-                src="Assets/Blue men hover 01.png"
-                alt="ThirtyThree Heritage Black Side View"
+                src="Assets/Blue women hover 01.png"
+                alt="ThirtyThree Heritage Blue Side View"
                 class="hover-image"
               />
             </div>
@@ -361,16 +345,14 @@
 
           <div class="watch-card">
             <div class="watch-card-image">
-              <!-- Main image -->
               <img
-                src="Assets/Brown men front 02.png"
-                alt="ThirtyThree Heritage Black"
+                src="Assets/Brown women front 02.png"
+                alt="ThirtyThree Heritage Brown"
                 class="main-image"
               />
-              <!-- Hover image -->
               <img
-                src="Assets/Brown men hover 01.png"
-                alt="ThirtyThree Heritage Black Side View"
+                src="Assets/Brown women hover 01.png"
+                alt="ThirtyThree Heritage Brown Side View"
                 class="hover-image"
               />
             </div>
@@ -383,13 +365,67 @@
             </div>
           </div>
         </div>
-
-        <!-- View All Button -->
-        <!-- <div class="shop-cta">
-          <a href="#" class="cta-button secondary">View All Timepieces</a>
-        </div> -->
       </div>
     </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <h3 class="footer-logo">Thirty Three</h3>
+            <p class="footer-tagline">Timeless African Craftsmanship</p>
+          </div>
+
+          <div class="footer-links">
+            <h4 class="footer-heading">Collection</h4>
+            <ul>
+              <li><a href="#shop">All Watches</a></li>
+              <li><a href="#shop">Black Collection</a></li>
+              <li><a href="#shop">Blue Collection</a></li>
+              <li><a href="#shop">Brown Collection</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4 class="footer-heading">About</h4>
+            <ul>
+              <li><a href="#about">Our Story</a></li>
+              <li><a href="#about">The 33 Fund</a></li>
+              <li><a href="#about">Craftsmanship</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-newsletter">
+            <h4 class="footer-heading">Stay Connected</h4>
+            <p class="newsletter-text">
+              Join our community for updates and exclusive offers.
+            </p>
+            <form class="newsletter-form">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="newsletter-input"
+                required
+              />
+              <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright">
+            © 2026 ThirtyThree Collection. All rights reserved.
+          </p>
+
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="Twitter">Twitter</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script src="script.js"></script>
   </body>
 </html>

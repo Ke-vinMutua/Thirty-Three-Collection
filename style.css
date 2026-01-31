@@ -11,14 +11,12 @@
   --navy: #1a2332;
   --off-white: #eeeeee;
 
-  /* Font Weights */
   --fw-light: 300;
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
   --fw-bold: 700;
 
-  /* Font Sizes */
   --fs-xs: 11px;
   --fs-sm: 13px;
   --fs-base: 16px;
@@ -32,53 +30,35 @@
   --fs-7xl: 100px;
   --fs-8xl: 140px;
 
-  /* Button Sizes */
   --btn-padding-sm: 12px 32px;
   --btn-padding-md: 16px 48px;
   --btn-padding-lg: 20px 60px;
 
-  /* Transitions */
   --transition-fast: 0.3s ease;
   --transition-base: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.6s ease;
 }
 
 body {
-  font-family: "Cormorant Garamond", serif;
+  font-family: sans-serif;
   background: var(--off-white);
   color: var(--cream);
   overflow-x: hidden;
 }
 
-/* ==================== TYPOGRAPHY SYSTEM ==================== */
-/*
-  Typography System for ThirtyThree Collection
-  
-  Font Families:
-  - Playfair Display (serif) - Headlines, luxury feel
-  - Cormorant Garamond (serif) - Body text, elegant
-  
-  Hierarchy:
-  h1 = Hero headlines (140px)
-  h2 = Section titles (64px)
-  h3 = Card/product titles (20px)
-  h4 = Subsection titles (24px)
-  h5 = Small headings (18px)
-  h6 = Tiny headings (16px)
-  
-  Body = 16px base
-  Small = 13-14px
-  Tiny = 11-12px
-*/
+html {
+  scroll-behavior: smooth;
+}
 
-/* ===== HEADING STYLES ===== */
+/* ==================== TYPOGRAPHY SYSTEM ==================== */
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Playfair Display", serif;
+  font-family: sans-serif;
   font-weight: 700;
   line-height: 1.2;
   color: var(--navy);
@@ -86,40 +66,39 @@ h6 {
 }
 
 h1 {
-  font-size: var(--fs-8xl); /* 140px */
+  font-size: var(--fs-8xl);
   letter-spacing: -3px;
   line-height: 0.95;
 }
 
 h2 {
-  font-size: var(--fs-6xl); /* 64px */
+  font-size: var(--fs-6xl);
   letter-spacing: -1px;
 }
 
 h3 {
-  font-size: var(--fs-xl); /* 20px */
+  font-size: var(--fs-xl);
   font-weight: 600;
   letter-spacing: 0;
 }
 
 h4 {
-  font-size: var(--fs-2xl); /* 24px */
+  font-size: var(--fs-2xl);
   font-weight: 600;
 }
 
 h5 {
-  font-size: var(--fs-lg); /* 18px */
+  font-size: var(--fs-lg);
   font-weight: 600;
 }
 
 h6 {
-  font-size: var(--fs-base); /* 16px */
+  font-size: var(--fs-base);
   font-weight: 600;
 }
 
-/* ===== BODY TEXT ===== */
 p {
-  font-family: "Cormorant Garamond", serif;
+  font-family: sans-serif;
   font-size: var(--fs-base);
   font-weight: 400;
   line-height: 1.6;
@@ -127,26 +106,21 @@ p {
   margin: 0;
 }
 
-/* ===== TEXT UTILITIES ===== */
-
-/* Display Text (Extra large) */
 .text-display {
-  font-family: "Playfair Display", serif;
+  font-family: sans-serif;
   font-size: var(--fs-8xl);
   font-weight: 700;
   letter-spacing: -3px;
   line-height: 0.95;
 }
 
-/* Title Text (Section headers) */
 .text-title {
-  font-family: "Playfair Display", serif;
+  font-family: sans-serif;
   font-size: var(--fs-6xl);
   font-weight: 700;
   letter-spacing: -1px;
 }
 
-/* Subtitle Text (Under section headers) */
 .text-subtitle {
   font-size: var(--fs-base);
   font-weight: 300;
@@ -155,25 +129,21 @@ p {
   color: rgba(26, 35, 50, 0.5);
 }
 
-/* Body Large */
 .text-lg {
   font-size: var(--fs-lg);
   line-height: 1.6;
 }
 
-/* Body Small */
 .text-sm {
   font-size: var(--fs-sm);
   line-height: 1.5;
 }
 
-/* Body Tiny */
 .text-xs {
   font-size: var(--fs-xs);
   line-height: 1.4;
 }
 
-/* Uppercase Label */
 .text-label {
   font-size: var(--fs-sm);
   font-weight: 400;
@@ -181,13 +151,11 @@ p {
   text-transform: uppercase;
 }
 
-/* Italic Accent */
 .text-accent {
   font-style: italic;
   color: var(--gold);
 }
 
-/* ===== FONT WEIGHT UTILITIES ===== */
 .font-light {
   font-weight: var(--fw-light);
 }
@@ -204,7 +172,6 @@ p {
   font-weight: var(--fw-bold);
 }
 
-/* ===== COLOR UTILITIES ===== */
 .text-navy {
   color: var(--navy);
 }
@@ -221,7 +188,6 @@ p {
   color: rgba(26, 35, 50, 0.6);
 }
 
-/* ===== ALIGNMENT UTILITIES ===== */
 .text-left {
   text-align: left;
 }
@@ -231,8 +197,6 @@ p {
 .text-right {
   text-align: right;
 }
-
-/* ===== RESPONSIVE TYPOGRAPHY ===== */
 
 @media (max-width: 1200px) {
   h1,
@@ -316,266 +280,138 @@ p {
   }
 }
 
-/* ==================== TYPOGRAPHY SYSTEM END ==================== */
+/* ==================== TOP LOGO BRAND SYSTEM ==================== */
 
-/* ==================== NAVIGATION SYSTEM ==================== */
-nav {
+.top-logo-brand {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 200;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 20px 60px; /* Increased from 16px to 20px */
-  background: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(10px);
-  transition: all 0.4s ease;
-  border: none; /* Add this */
-  border-bottom: none;
+  padding: 32px 20px;
+  background: rgba(238, 238, 238, 0.95);
+  backdrop-filter: blur(12px);
+  transition: all 0.4s cubic-bezier(0.4, 0.2, 1);
 }
 
-nav.scrolled {
-  background: rgba(10, 10, 10, 0.98);
-  padding: 16px 60px; /* Increased from 12px to 16px */
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
-  border: none; /* Add this */
-  border-bottom: none;
+.top-logo-brand.scrolled {
+  padding: 20px 20px;
+  background: rgba(238, 238, 238, 0.98);
+  box-shadow: none;
 }
 
-.logo-nav {
-  font-family: "Playfair Display", serif;
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--cream);
-  letter-spacing: 3px;
+.brand-logo-link {
+  display: block;
   text-decoration: none;
   transition: transform 0.3s ease;
-  text-transform: uppercase;
-  flex-shrink: 0;
-  z-index: 101;
 }
 
-.logo-nav:hover {
-  transform: scale(1.05);
+.brand-logo-link:hover {
+  transform: scale(1.02);
 }
 
-.nav-links {
-  display: flex;
-  gap: 48px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.brand-logo-link:active {
+  transform: scale(0.98);
 }
 
-.nav-links a {
-  color: var(--cream);
-  text-decoration: none;
-  font-size: 16px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 400;
-  position: relative;
-  transition: color 0.3s ease;
-  white-space: nowrap;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--gold);
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: var(--gold);
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-/* Mobile Menu Toggle */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  background: none;
-  border: none;
-  cursor: pointer;
-  gap: 6px;
-  padding: 8px;
-  z-index: 101;
-}
-
-.menu-toggle span {
-  width: 24px;
-  height: 2px;
-  background: var(--cream);
-  transition: all 0.3s ease;
+.brand-logo {
+  height: 48px;
+  width: auto;
   display: block;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0) saturate(100%);
 }
 
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
+.top-logo-brand.scrolled .brand-logo {
+  height: 36px;
 }
 
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
-}
-
-/* Tablet & Mobile Responsive */
 @media (max-width: 900px) {
-  nav {
-    padding: 16px 40px;
+  .top-logo-brand {
+    padding: 24px 0;
   }
 
-  nav.scrolled {
-    padding: 12px 40px;
+  .top-logo-brand.scrolled {
+    padding: 16px 0;
   }
 
-  .nav-links {
-    gap: 32px;
+  .brand-logo {
+    height: 40px;
   }
 
-  .nav-links a {
-    font-size: 14px;
-    letter-spacing: 1px;
+  .top-logo-brand.scrolled .brand-logo {
+    height: 32px;
   }
 }
 
 @media (max-width: 768px) {
-  nav {
-    padding: 20px 24px; /* Increased from 16px */
-    border: none;
+  .top-logo-brand {
+    padding: 20px 16px;
   }
 
-  nav.scrolled {
-    padding: 16px 24px; /* Increased from 12px */
-    border: none;
+  .top-logo-brand.scrolled {
+    padding: 14px 16px;
   }
 
-  .logo-nav {
-    font-size: 20px;
-    letter-spacing: 2px;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    gap: 0;
-    background: rgba(10, 10, 10, 0.98);
-    backdrop-filter: blur(10px);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0;
-    border-top: none;
-  }
-
-  .nav-links.active {
-    max-height: 300px;
-    padding: 24px 0;
-  }
-
-  .nav-links li {
-    border-bottom: 1px solid rgba(184, 149, 106, 0.1);
-  }
-
-  .nav-links li:last-child {
-    border-bottom: none;
-  }
-
-  .nav-links a {
-    display: block;
-    padding: 16px 24px;
-    font-size: 14px;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-  }
-
-  .nav-links a::after {
-    display: none;
-  }
-
-  .nav-links a:hover {
-    background: rgba(184, 149, 106, 0.1);
-    padding-left: 32px;
+  .brand-logo {
+    height: 36px;
+    max-width: calc(100vw - 32px);
   }
 }
 
 @media (max-width: 480px) {
-  nav {
-    padding: 12px 16px;
+  .top-logo-brand {
+    padding: 16px 0;
   }
 
-  .logo-nav {
-    font-size: 18px;
-    letter-spacing: 1px;
+  .top-logo-brand.scrolled {
+    padding: 12px 0;
   }
 
-  .nav-links a {
-    font-size: 13px;
+  .brand-logo {
+    height: 32px;
+  }
+
+  .top-logo-brand.scrolled .brand-logo {
+    height: 26px;
   }
 }
 
-/* ==================== NAVIGATION SYSTEM END ==================== */
-
 /* ==================== BUTTON SYSTEM ==================== */
 
-/* ===== BASE BUTTON STYLES ===== */
 .btn,
 button.btn,
 a.btn {
-  /* Typography */
   font-family: inherit;
   font-size: var(--fs-sm);
   letter-spacing: 3px;
   text-transform: uppercase;
   font-weight: var(--fw-semibold);
 
-  /* Layout */
   display: inline-block;
-  padding: 16px 48px; /* Default: Medium size */
+  padding: 16px 48px;
 
-  /* Styling */
   border: none;
   background: transparent;
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
 
-  /* Positioning for pseudo-elements */
   position: relative;
   overflow: hidden;
 
-  /* Transitions */
   transition: all var(--transition-base);
 }
 
-/* ===== PRIMARY BUTTON (Gold Border → Fill) ===== */
 .btn-primary {
   background: transparent;
   border: 2px solid var(--gold);
   color: var(--gold);
 }
 
-/* Hover fill effect */
 .btn-primary::before {
   content: "";
   position: absolute;
@@ -603,7 +439,6 @@ a.btn {
   transform: translateY(0);
 }
 
-/* ===== SECONDARY BUTTON (Subtle BG → Gold Fill) ===== */
 .btn-secondary {
   background: rgba(184, 149, 106, 0.08);
   border: 2px solid var(--gold);
@@ -621,7 +456,6 @@ a.btn {
   transform: translateY(0);
 }
 
-/* ===== TERTIARY BUTTON (Text with Underline) ===== */
 .btn-tertiary {
   padding: 16px 48px;
   background: transparent;
@@ -645,7 +479,6 @@ a.btn {
   width: calc(100% - 96px);
 }
 
-/* ===== DARK VARIANT (For Light Backgrounds) ===== */
 .btn-dark {
   border-color: var(--navy);
   color: var(--navy);
@@ -659,7 +492,6 @@ a.btn {
   color: var(--cream);
 }
 
-/* ===== SIZE MODIFIERS ===== */
 .btn-sm {
   padding: 12px 32px;
   font-size: var(--fs-xs);
@@ -696,9 +528,6 @@ a.btn {
   width: calc(100% - 120px);
 }
 
-/* ===== STATE MODIFIERS ===== */
-
-/* Disabled State */
 .btn:disabled,
 .btn.disabled {
   opacity: 0.5;
@@ -713,14 +542,12 @@ a.btn {
   transform: none !important;
 }
 
-/* Animation (Use ONLY for hero section buttons) */
 .btn-animated {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1s ease forwards 1.6s;
 }
 
-/* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 768px) {
   .btn-primary,
   .btn-secondary {
@@ -753,19 +580,6 @@ a.btn {
   }
 }
 
-/* ===== LEGACY SUPPORT ===== */
-/* Support old .cta-button class for backwards compatibility */
-.cta-button {
-  @extend .btn;
-  @extend .btn-primary;
-  @extend .btn-lg;
-}
-
-.cta-button.secondary {
-  @extend .btn-secondary;
-}
-
-/* If CSS doesn't support @extend, use this instead: */
 .cta-button {
   font-family: inherit;
   font-size: var(--fs-sm);
@@ -815,67 +629,35 @@ a.btn {
   background: var(--gold);
 }
 
-/* Animation for hero CTA buttons only */
 .hero .cta-button {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1s ease forwards 1.6s;
 }
+/* ==================== HERO SECTION ==================== */
 
-/* ==================== BUTTON SYSTEM END ==================== */
-
-/* ==================== HERO SECTION SYSTEM ==================== */
-/*
-  Hero Section for ThirtyThree Collection
-  
-  Structure:
-  .hero (container)
-    ├── .logo-watermark (animated background logo)
-    └── .hero-content (centered content)
-        ├── .headline (main title)
-        │   ├── .headline-line (each line)
-        │   └── .headline-accent (gold "Time" text)
-        ├── .subheadline (tagline)
-        └── .cta-button (call to action)
-  
-  Features:
-  - 80vh height (clean, not too tall)
-  - Animated headline entrance
-  - Parallax logo watermark (controlled by JS)
-  - Fully responsive
-*/
-
-/* ===== HERO CONTAINER ===== */
 .hero {
   position: relative;
-  height: 80vh; /* Clean height, not full screen */
-  min-height: 600px; /* Minimum height for small screens */
+  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--off-white);
-  padding: 80px 20px 40px; /* Top padding for navbar, sides for mobile */
+  padding: 120px 40px 60px;
 }
 
-/* ===== BACKGROUND LOGO WATERMARK ===== */
 .logo-watermark {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 900px;
-  height: 900px;
-  opacity: 0.06; /* Subtle background element */
-  pointer-events: none; /* Don't interfere with clicks */
-  transition:
-    transform 0.8s ease-out,
-    opacity 0.8s ease-out;
-  will-change: transform; /* Optimize for animation */
+  width: 200px;
+  height: 200px;
+  opacity: 0.04;
+  pointer-events: none;
   z-index: 1;
 }
 
-.logo-watermark svg,
 .logo-watermark img {
   width: 100%;
   height: 100%;
@@ -883,411 +665,404 @@ a.btn {
   filter: brightness(1.8) contrast(0.8);
 }
 
-/* ===== HERO CONTENT CONTAINER ===== */
-.hero-content {
-  position: relative;
-  z-index: 10; /* Above watermark */
-  text-align: center;
-  max-width: 1400px;
-  width: 100%;
-  padding: 0 80px;
-  margin: 0 auto;
+.hero-label {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.5;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
-/* ===== HEADLINE ===== */
-.headline {
-  font-family: "Playfair Display", serif;
-  font-size: 140px;
-  font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -3px;
-  color: var(--navy);
-  margin-bottom: 32px;
+.hero-label span {
+  display: block;
+}
 
-  /* Entrance Animation */
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.4s;
+.hero-label-top-left {
+  top: 120px;
+  left: 40px;
+}
+
+.hero-label-top-right {
+  top: 120px;
+  right: 40px;
+  text-align: right;
+}
+
+.hero-label-bottom-right {
+  bottom: 60px;
+  right: 40px;
+  text-align: right;
+}
+
+.hero-headline {
+  position: absolute;
+  bottom: 60px;
+  left: 40px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 1px;
+  color: var(--navy);
+  line-height: 1.5;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .headline-line {
-  display: block; /* Each line on separate line */
+  font-size: 36px;
+  font-weight: 300;
 }
 
 .headline-accent {
-  color: var(--gold);
-  font-style: italic;
+  font-size: 40px;
+  font-weight: 600;
 }
 
-/* ===== SUBHEADLINE ===== */
-.subheadline {
-  font-size: 18px;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: var(--navy);
-  margin-bottom: 60px; /* Space before button */
-  font-weight: 300;
-
-  /* Entrance Animation */
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s ease forwards 0.8s;
-}
-
-/* ===== CTA BUTTON (Inherits from button system) ===== */
-/* Button animations for hero are handled in button system with .hero .cta-button */
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-/* ===== RESPONSIVE - TABLET ===== */
 @media (max-width: 1200px) {
   .hero {
-    height: 75vh;
-    min-height: 550px;
-  }
-
-  .headline {
-    font-size: 100px;
-    letter-spacing: -2px;
+    min-height: 50vh;
+    padding: 100px 40px 60px;
   }
 
   .logo-watermark {
-    width: 700px;
-    height: 700px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero-label {
+    font-size: 11px;
+  }
+
+  .hero-label-top-left {
+    top: 100px;
+    left: 30px;
+  }
+
+  .hero-label-top-right {
+    top: 100px;
+    right: 30px;
+  }
+
+  .hero-label-bottom-right {
+    bottom: 50px;
+    right: 30px;
+  }
+
+  .hero-headline {
+    bottom: 50px;
+    left: 30px;
+  }
+
+  .headline-line {
+    font-size: 32px;
+  }
+
+  .headline-accent {
+    font-size: 36px;
   }
 }
 
-@media (max-width: 900px) {
-  .hero {
-    height: 70vh;
-    min-height: 500px;
-    padding: 80px 40px 40px;
-  }
-
-  .hero-content {
-    padding: 0 40px;
-  }
-
-  .headline {
-    font-size: 80px;
-    letter-spacing: -1.5px;
-    margin-bottom: 24px;
-  }
-
-  .subheadline {
-    font-size: 16px;
-    letter-spacing: 5px;
-    margin-bottom: 50px;
-  }
-
-  .logo-watermark {
-    width: 600px;
-    height: 600px;
-  }
-}
-
-/* ===== RESPONSIVE - MOBILE ===== */
 @media (max-width: 768px) {
   .hero {
-    height: 65vh;
-    min-height: 450px;
-    padding: 70px 24px 30px;
-  }
-
-  .hero-content {
-    padding: 0 24px;
-  }
-
-  .headline {
-    font-size: 64px;
-    letter-spacing: -1px;
-    margin-bottom: 20px;
-  }
-
-  .subheadline {
-    font-size: 14px;
-    letter-spacing: 4px;
-    margin-bottom: 40px;
+    min-height: 50vh;
+    padding: 100px 20px 40px;
   }
 
   .logo-watermark {
-    width: 500px;
-    height: 500px;
-    opacity: 0.04; /* Even more subtle on mobile */
+    width: 150px;
+    height: 150px;
+    opacity: 0.03;
+  }
+
+  .hero-label {
+    font-size: 9px;
+  }
+
+  .hero-label-top-left {
+    top: 80px;
+    left: 20px;
+  }
+
+  .hero-label-top-right {
+    top: 80px;
+    right: 20px;
+  }
+
+  .hero-label-bottom-right {
+    bottom: 40px;
+    right: 20px;
+  }
+
+  .hero-headline {
+    bottom: 40px;
+    left: 20px;
+  }
+
+  .headline-line {
+    font-size: 28px;
+  }
+
+  .headline-accent {
+    font-size: 32px;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    height: 60vh;
-    min-height: 400px;
-    padding: 60px 16px 20px;
-  }
-
-  .hero-content {
-    padding: 0 16px;
-  }
-
-  .headline {
-    font-size: 48px;
-    letter-spacing: -0.5px;
-    margin-bottom: 16px;
-    line-height: 1;
-  }
-
-  .subheadline {
-    font-size: 12px;
-    letter-spacing: 3px;
-    margin-bottom: 32px;
+    min-height: 50vh;
+    padding: 80px 16px 30px;
   }
 
   .logo-watermark {
-    width: 400px;
-    height: 400px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero-label {
+    font-size: 8px;
+  }
+
+  .hero-label-top-left {
+    top: 70px;
+    left: 16px;
+  }
+
+  .hero-label-top-right {
+    top: 70px;
+    right: 16px;
+  }
+
+  .hero-label-bottom-right {
+    bottom: 30px;
+    right: 16px;
+  }
+
+  .hero-headline {
+    bottom: 30px;
+    left: 16px;
+  }
+
+  .headline-line {
+    font-size: 24px;
+  }
+
+  .headline-accent {
+    font-size: 28px;
   }
 }
 
-/* ===== LANDSCAPE MODE (for short screens) ===== */
-@media (max-height: 600px) and (orientation: landscape) {
-  .hero {
-    height: auto;
-    min-height: 100vh;
-    padding: 100px 40px 60px;
+/* ==================== WATCH SEQUENCE SECTION ==================== */
+
+.watch-sequence-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+}
+
+.watch-sequence-container {
+  width: 100%;
+  height: 100%;
+}
+
+.watch-sequence-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+@media (max-width: 1200px) {
+  .watch-sequence-section {
+    min-height: 90vh;
+    padding: 50px 40px;
+    margin-top: -10vh;
   }
 
-  .headline {
-    font-size: 60px;
-    margin-bottom: 16px;
+  .watch-sequence-container {
+    width: 100%;
+    height: 100%;
   }
 
-  .subheadline {
-    font-size: 14px;
-    margin-bottom: 30px;
+  .watch-sequence-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 }
 
-/* ==================== HERO SECTION SYSTEM END ==================== */
+@media (max-width: 768px) {
+  .watch-sequence-section {
+    min-height: 80vh;
+    padding: 40px 20px;
+    margin-top: -20vh;
+  }
+
+  .watch-sequence-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .watch-sequence-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 480px) {
+  .watch-sequence-section {
+    min-height: 70vh;
+    padding: 30px 16px;
+    margin-top: -30vh;
+  }
+
+  .watch-sequence-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .watch-sequence-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
 
 /* ==================== WATCH SHOWCASE SECTION ==================== */
-/*
-  Watch Showcase Section for ThirtyThree Collection
-  
-  Structure:
-  .watch-showcase (section container)
-    └── .watch-showcase-container (content wrapper)
-        └── .watch-display (watch carousel)
-            └── .watch-image (individual watch)
-                └── img (watch image)
-  
-  Features:
-  - Displays 3 rotating watches (Black, Blue, Brown)
-  - Switches automatically on scroll (controlled by JS)
-  - Smooth fade transitions between watches
-  - Fully responsive
-  - No navigation dots (removed)
-*/
 
-/* ===== SHOWCASE SECTION CONTAINER ===== */
 .watch-showcase {
-  background: var(--off-white);
-  padding: 80px 60px 120px;
-  overflow: hidden;
   position: relative;
+  padding: 80px 40px;
+  min-height: 0;
 }
 
-/* ===== CONTENT WRAPPER ===== */
 .watch-showcase-container {
   max-width: 1400px;
   margin: 0 auto;
 }
 
-/* ===== WATCH DISPLAY CONTAINER ===== */
 .watch-display {
   position: relative;
-  width: 900px;
-  height: 350px;
-  margin: 0 auto;
-
-  /* Entrance Animation */
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1.2s ease forwards 0.3s;
+  width: 100%;
+  min-height: 400px;
 }
 
-/* ===== INDIVIDUAL WATCH IMAGE ===== */
 .watch-image {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
   width: 100%;
-  height: 100%;
   opacity: 0;
-  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none; /* Don't interfere with clicks */
+  transition: opacity 0.5s ease;
+  pointer-events: none;
 }
 
-/* Active watch is visible */
 .watch-image.active {
   opacity: 1;
+  pointer-events: auto;
 }
 
-/* ===== WATCH IMAGE STYLING ===== */
 .watch-image img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 30px 80px rgba(184, 149, 106, 0.25));
 }
 
-/* ===== RESPONSIVE - TABLET ===== */
 @media (max-width: 1200px) {
   .watch-showcase {
-    padding: 60px 40px 100px;
+    padding: 60px 40px;
   }
 
   .watch-display {
-    width: 700px;
-    height: 280px;
+    min-height: 350px;
   }
 }
 
-@media (max-width: 900px) {
-  .watch-showcase {
-    padding: 50px 30px 80px;
-  }
-
-  .watch-display {
-    width: 600px;
-    height: 250px;
-  }
-}
-
-/* ===== RESPONSIVE - MOBILE ===== */
 @media (max-width: 768px) {
   .watch-showcase {
-    padding: 40px 24px 60px;
+    padding: 50px 20px;
   }
 
   .watch-display {
-    width: 90%;
-    height: 200px;
+    min-height: 300px;
   }
 }
 
 @media (max-width: 480px) {
   .watch-showcase {
-    padding: 30px 16px 50px;
+    padding: 40px 16px;
   }
 
   .watch-display {
-    width: 100%;
-    height: 180px;
-  }
-
-  .watch-image img {
-    filter: drop-shadow(0 20px 50px rgba(184, 149, 106, 0.2));
+    min-height: 250px;
   }
 }
 
-/* ===== LANDSCAPE MODE ===== */
-@media (max-height: 600px) and (orientation: landscape) {
-  .watch-showcase {
-    padding: 40px 40px 60px;
-  }
+/* ==================== SHOP SECTION ==================== */
 
-  .watch-display {
-    width: 600px;
-    height: 200px;
-  }
+.shop-section {
+  background: var(--off-white);
+  padding: 120px 60px;
+  min-height: 100vh;
 }
 
-/* ==================== WATCH SHOWCASE SECTION END ==================== */
-
-/* ==================== IMAGE SYSTEM ==================== */
-/*
-  Global Image Handling for ThirtyThree Collection
-  
-  Rules:
-  - All images contained within parent
-  - No overflow
-  - Consistent object-fit behavior
-  - Responsive by default
-*/
-
-/* ===== BASE IMAGE STYLES ===== */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.shop-container {
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-/* ===== CONTAINER IMAGES (Product cards, galleries, etc.) ===== */
-.watch-card-image img,
-.product-image img,
-.gallery-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Shows full image, no crop */
-  object-position: center;
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
 }
 
-/* ===== COVER IMAGES (Hero backgrounds, banners) ===== */
-.hero-image img,
-.banner-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Fills container, may crop */
-  object-position: center;
+.section-title {
+  font-family: sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 16px;
+  letter-spacing: -1px;
 }
 
-/* ===== PREVENT OVERFLOW ===== */
-.watch-card-image,
-.product-image,
-.gallery-image,
-.hero-image,
-.banner-image {
-  overflow: hidden;
-  position: relative;
+.section-subtitle {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(26, 35, 50, 0.5);
+  font-weight: 300;
 }
 
-/* ==================== IMAGE SYSTEM END ==================== */
+.watch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-bottom: 80px;
+}
 
-/* ==================== SHOP CARD SYSTEM ==================== */
-/*
-  Watch Product Card Component
-  
-  Structure:
-  .watch-card
-    ├── .watch-card-image
-    │   ├── img.main-image (default visible)
-    │   └── img.hover-image (shows on hover)
-    └── .watch-card-info
-        ├── .watch-name
-        └── .watch-specs
-            ├── .watch-type
-            └── .watch-variants
-  
-  Features:
-  - Image swap on hover
-  - Lift effect on hover
-  - Clean typography
-  - Fully responsive
-*/
+.shop-cta {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards 0.8s;
+}
 
-/* ===== CARD CONTAINER ===== */
 .watch-card {
   background: rgba(245, 243, 240, 0.03);
   border: 1px solid rgba(245, 243, 240, 0.08);
@@ -1296,13 +1071,11 @@ img {
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Entrance Animation */
   opacity: 0;
   transform: translateY(40px);
   animation: fadeInUp 0.8s ease forwards;
 }
 
-/* Stagger animation delays for cards */
 .watch-card:nth-child(1) {
   animation-delay: 0.1s;
 }
@@ -1322,7 +1095,6 @@ img {
   animation-delay: 0.6s;
 }
 
-/* Hover Effect */
 .watch-card:hover {
   transform: translateY(-8px);
   border-color: rgba(184, 149, 106, 0.3);
@@ -1330,7 +1102,6 @@ img {
   background: rgba(245, 243, 240, 0.05);
 }
 
-/* ===== IMAGE CONTAINER ===== */
 .watch-card-image {
   position: relative;
   background: rgb(222, 222, 222);
@@ -1339,14 +1110,13 @@ img {
   align-items: center;
   justify-content: center;
   min-height: 320px;
-  overflow: hidden; /* Critical: prevents image overflow */
+  overflow: hidden;
 }
 
-/* ===== IMAGE STYLES ===== */
 .watch-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Shows full watch, no crop */
+  object-fit: contain;
   object-position: center;
   filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.3));
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1356,22 +1126,19 @@ img {
 }
 
 .watch-card-image .hover-image {
-  object-fit: cover; /* Fills container, crops if needed */
+  object-fit: cover;
 }
 
-/* Main image visible by default */
 .watch-card-image .main-image {
   opacity: 1;
   z-index: 1;
 }
 
-/* Hover image hidden by default */
 .watch-card-image .hover-image {
   opacity: 0;
   z-index: 2;
 }
 
-/* Image Swap on Hover */
 .watch-card:hover .main-image {
   opacity: 0;
 }
@@ -1380,19 +1147,16 @@ img {
   opacity: 1;
 }
 
-/* Subtle zoom on hover */
 .watch-card:hover .watch-card-image img {
   transform: scale(1.05);
 }
 
-/* ===== INFO SECTION ===== */
 .watch-card-info {
   padding: 28px 32px;
 }
 
-/* Watch Name */
 .watch-name {
-  font-family: "Playfair Display", serif;
+  font-family: sans-serif;
   font-size: 20px;
   font-weight: 600;
   color: var(--navy);
@@ -1405,7 +1169,6 @@ img {
   color: var(--gold);
 }
 
-/* Specs Row */
 .watch-specs {
   display: flex;
   gap: 12px;
@@ -1425,7 +1188,6 @@ img {
   padding-left: 12px;
 }
 
-/* Separator Line */
 .watch-variants::before {
   content: "";
   position: absolute;
@@ -1437,137 +1199,6 @@ img {
   background: rgba(26, 35, 50, 0.3);
 }
 
-/* ===== RESPONSIVE - TABLET ===== */
-@media (max-width: 1200px) {
-  .watch-card-image {
-    min-height: 280px;
-    padding: 40px 28px;
-  }
-
-  .watch-name {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 900px) {
-  .watch-card-image {
-    min-height: 260px;
-    padding: 36px 24px;
-  }
-
-  .watch-card-info {
-    padding: 24px 28px;
-  }
-}
-
-/* ===== RESPONSIVE - MOBILE ===== */
-@media (max-width: 768px) {
-  .watch-card-image {
-    min-height: 280px;
-    padding: 36px 24px;
-  }
-
-  .watch-card-info {
-    padding: 24px;
-  }
-
-  .watch-name {
-    font-size: 18px;
-  }
-
-  .watch-specs {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .watch-card-image {
-    min-height: 240px;
-    padding: 32px 20px;
-  }
-
-  .watch-card-info {
-    padding: 20px;
-  }
-
-  .watch-name {
-    font-size: 17px;
-  }
-}
-
-/* ==================== SHOP CARD SYSTEM END ==================== */
-
-/* ==================== SHOP SECTION LAYOUT ==================== */
-/*
-  Shop Section Container & Grid System
-  
-  Structure:
-  .shop-section
-    └── .shop-container
-        ├── .section-header
-        │   ├── .section-title
-        │   └── .section-subtitle
-        ├── .watch-grid (3 columns)
-        │   └── .watch-card (handled by card system)
-        └── .shop-cta
-            └── button
-*/
-
-/* ===== SECTION CONTAINER ===== */
-.shop-section {
-  background: var(--off-white);
-  padding: 120px 60px;
-  min-height: 100vh;
-}
-
-.shop-container {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-/* ===== SECTION HEADER ===== */
-.section-header {
-  text-align: center;
-  margin-bottom: 80px;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1s ease forwards;
-}
-
-.section-title {
-  font-family: "Playfair Display", serif;
-  font-size: 64px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 16px;
-  letter-spacing: -1px;
-}
-
-.section-subtitle {
-  font-size: 16px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: rgba(26, 35, 50, 0.5);
-  font-weight: 300;
-}
-
-/* ===== WATCH GRID (3 COLUMNS) ===== */
-.watch-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
-  margin-bottom: 80px;
-}
-
-/* ===== CTA SECTION ===== */
-.shop-cta {
-  text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s ease forwards 0.8s;
-}
-
-/* ===== RESPONSIVE - TABLET ===== */
 @media (max-width: 1200px) {
   .shop-section {
     padding: 100px 40px;
@@ -1580,6 +1211,15 @@ img {
   .watch-grid {
     gap: 36px;
   }
+
+  .watch-card-image {
+    min-height: 280px;
+    padding: 40px 28px;
+  }
+
+  .watch-name {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1591,9 +1231,17 @@ img {
   .section-title {
     font-size: 44px;
   }
+
+  .watch-card-image {
+    min-height: 260px;
+    padding: 36px 24px;
+  }
+
+  .watch-card-info {
+    padding: 24px 28px;
+  }
 }
 
-/* ===== RESPONSIVE - MOBILE ===== */
 @media (max-width: 768px) {
   .shop-section {
     padding: 80px 24px;
@@ -1616,6 +1264,23 @@ img {
     grid-template-columns: 1fr;
     gap: 28px;
   }
+
+  .watch-card-image {
+    min-height: 280px;
+    padding: 36px 24px;
+  }
+
+  .watch-card-info {
+    padding: 24px;
+  }
+
+  .watch-name {
+    font-size: 18px;
+  }
+
+  .watch-specs {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1630,28 +1295,23 @@ img {
   .section-subtitle {
     font-size: 12px;
   }
+
+  .watch-card-image {
+    min-height: 240px;
+    padding: 32px 20px;
+  }
+
+  .watch-card-info {
+    padding: 20px;
+  }
+
+  .watch-name {
+    font-size: 17px;
+  }
 }
 
-/* ==================== SHOP SECTION LAYOUT END ==================== */
-
 /* ==================== ABOUT SECTION ==================== */
-/*
-  About Section for ThirtyThree Collection
-  
-  Structure:
-  .about-section
-    └── .about-container
-        └── .about-content
-            ├── .about-title
-            ├── .about-text
-            │   ├── .about-lead
-            │   └── p (paragraphs)
-            └── .about-fund
-                ├── .fund-title
-                └── .fund-description
-*/
 
-/* ===== SECTION CONTAINER ===== */
 .about-section {
   background: var(--cream);
   padding: 120px 60px;
@@ -1663,16 +1323,14 @@ img {
   margin: 0 auto;
 }
 
-/* ===== CONTENT WRAPPER ===== */
 .about-content {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 1s ease forwards 0.2s;
 }
 
-/* ===== TITLE ===== */
 .about-title {
-  font-family: "Playfair Display", serif;
+  font-family: sans-serif;
   font-size: 52px;
   font-weight: 700;
   color: var(--navy);
@@ -1681,7 +1339,6 @@ img {
   letter-spacing: -1px;
 }
 
-/* ===== TEXT CONTENT ===== */
 .about-text {
   margin-bottom: 60px;
 }
@@ -1705,7 +1362,6 @@ img {
   margin-bottom: 0;
 }
 
-/* ===== THE 33 FUND SECTION ===== */
 .about-fund {
   background: rgba(184, 149, 106, 0.08);
   border-left: 3px solid var(--gold);
@@ -1714,7 +1370,7 @@ img {
 }
 
 .fund-title {
-  font-family: "Playfair Display", serif;
+  font-family: sans-serif;
   font-size: 24px;
   font-weight: 600;
   color: var(--gold);
@@ -1729,7 +1385,6 @@ img {
   margin: 0;
 }
 
-/* ===== RESPONSIVE - TABLET ===== */
 @media (max-width: 1200px) {
   .about-section {
     padding: 100px 40px;
@@ -1759,7 +1414,6 @@ img {
   }
 }
 
-/* ===== RESPONSIVE - MOBILE ===== */
 @media (max-width: 768px) {
   .about-section {
     padding: 60px 24px;
@@ -1811,4 +1465,251 @@ img {
   }
 }
 
-/* ==================== ABOUT SECTION END ==================== */
+/* ==================== FOOTER ==================== */
+
+.footer {
+  background: var(--midnight);
+  color: var(--cream);
+  padding: 80px 60px 40px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(245, 243, 240, 0.1);
+  margin-bottom: 40px;
+}
+
+.footer-brand {
+  padding-right: 40px;
+}
+
+.footer-logo {
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.footer-tagline {
+  font-size: 14px;
+  color: rgba(245, 243, 240, 0.6);
+  line-height: 1.6;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: rgba(245, 243, 240, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+.footer-newsletter {
+  padding-left: 20px;
+}
+
+.newsletter-text {
+  font-size: 14px;
+  color: rgba(245, 243, 240, 0.6);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 12px 16px;
+  background: rgba(245, 243, 240, 0.05);
+  border: 1px solid rgba(245, 243, 240, 0.1);
+  border-radius: 4px;
+  color: var(--cream);
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(245, 243, 240, 0.08);
+}
+
+.newsletter-input::placeholder {
+  color: rgba(245, 243, 240, 0.4);
+}
+
+.newsletter-button {
+  padding: 12px 24px;
+  background: var(--gold);
+  color: var(--midnight);
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.newsletter-button:hover {
+  background: #c9a677;
+  transform: translateY(-2px);
+}
+
+.footer-heading {
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.footer-copyright {
+  font-size: 13px;
+  color: rgba(245, 243, 240, 0.5);
+}
+
+.footer-social {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-social a {
+  color: rgba(245, 243, 240, 0.6);
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 1200px) {
+  .footer {
+    padding: 60px 40px 30px;
+  }
+
+  .footer-top {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .footer-newsletter {
+    grid-column: 1 / -1;
+    padding-left: 0;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 50px 24px 30px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 40px;
+  }
+
+  .footer-brand {
+    margin-bottom: 0;
+  }
+
+  .footer-newsletter {
+    margin-top: 0;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .newsletter-button {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-social {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 40px 16px 24px;
+  }
+
+  .footer-logo {
+    font-size: 20px;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
