@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function getFrameFilename(frameNumber) {
     const paddedNumber = String(frameNumber).padStart(2, "0");
-    return `Assets/ThirtyThree ImageSequence/frame_${paddedNumber}_delay-0.05s.webp`;
+    return `./Assets/ThirtyThree ImageSequence/frame_${paddedNumber}_delay-0.05s.webp`;
   }
 
   function preloadFrames() {
