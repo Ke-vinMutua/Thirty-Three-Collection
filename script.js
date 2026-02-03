@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const CONFIG = {
-    HERO_FRAMES: 94,
+    HERO_FRAMES: 51,
     LOGO_SCROLL_THRESHOLD: 50,
     WATCH_SWITCH_INTERVALS: [400, 800],
   };
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function getFrameFilename(frameNumber) {
     const paddedNumber = String(frameNumber).padStart(2, "0");
-    return `./Assets/ThirtyThree ImageSequence/frame_${paddedNumber}_delay-0.05s.webp`;
+    return `./Assets/ThirtyThree ImageSequence/frame_${paddedNumber}_delay-0.1s.webp`;
   }
 
   function preloadFrames() {
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const offset = 300;
     const scrolled = windowHeight - rect.top - offset;
     const totalScrollable = sectionHeight + windowHeight;
-    const progress = scrolled / totalScrollable;
+    const progress = Math.min(1, (scrolled / totalScrollable) * 1.7);
 
     return Math.max(0, Math.min(1, progress));
   }
