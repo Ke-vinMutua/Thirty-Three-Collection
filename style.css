@@ -330,8 +330,8 @@ body.loaded .watch-sequence-section {
 
 .preloader-content {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
 }
 
 .preloader-circle {
@@ -362,19 +362,48 @@ body.loaded .watch-sequence-section {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: "Work Sans", sans-serif;
-  font-size: 32px;
+  font-size: 70px;
   font-weight: 600;
   color: var(--navy);
+  background: var(--off-white);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.preloader-hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: var(--navy);
+  transform-origin: 50% 100px;
+  transform: translate(-50%, -100px) rotate(0deg);
+  transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
 @media (max-width: 480px) {
   .preloader-content {
-    width: 160px;
-    height: 160px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .preloader-hand {
+    height: 80px;
+    transform-origin: 50% 80px;
+    transform: translate(-50%, -80px) rotate(0deg);
   }
 
   .preloader-percentage {
-    font-size: 28px;
+    font-size: 36px;
+    width: 80px;
+    height: 80px;
   }
 }
 
@@ -1107,7 +1136,6 @@ a.btn {
     min-height: 250px;
   }
 }
-
 /* ==================== SHOP SECTION ==================== */
 
 .shop-section {
@@ -1169,38 +1197,6 @@ a.btn {
   margin-bottom: 48px;
 }
 
-.shop-cta {
-  text-align: center;
-  margin-top: 80px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s ease forwards 0.8s;
-}
-
-.shop-cta .btn {
-  padding: 18px 56px;
-  background: var(--gold);
-  color: var(--off-white);
-  border: none;
-  border-radius: 12px;
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: none;
-  transition: all 0.3s ease;
-}
-
-.shop-cta .btn::before {
-  display: none;
-}
-
-.shop-cta .btn:hover {
-  background: #c9a677;
-  color: var(--off-white);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 40px rgba(184, 149, 106, 0.3);
-}
-
 .watch-card {
   background: #fff;
   border: 1px solid rgba(26, 35, 50, 0.1);
@@ -1216,9 +1212,11 @@ a.btn {
 .watch-card:nth-child(1) {
   animation-delay: 0.1s;
 }
+
 .watch-card:nth-child(2) {
   animation-delay: 0.2s;
 }
+
 .watch-card:nth-child(3) {
   animation-delay: 0.3s;
 }
@@ -1243,17 +1241,11 @@ a.btn {
 .watch-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center;
   filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.2));
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
   top: 0;
   left: 0;
-}
-
-.watch-card-image .hover-image {
-  object-fit: cover;
 }
 
 .watch-card-image .main-image {
@@ -1276,6 +1268,22 @@ a.btn {
 
 .watch-card:hover .watch-card-image img {
   transform: scale(1.01);
+}
+
+.watch-grid-41mm .watch-card-image .main-image {
+  object-fit: contain;
+}
+
+.watch-grid-41mm .watch-card-image .hover-image {
+  object-fit: cover;
+}
+
+.watch-grid-34mm .watch-card-image .main-image {
+  object-fit: cover;
+}
+
+.watch-grid-34mm .watch-card-image .hover-image {
+  object-fit: contain;
 }
 
 .watch-card-info {
@@ -1332,6 +1340,38 @@ a.btn {
   text-transform: uppercase;
   color: var(--navy);
   text-align: right;
+}
+
+.shop-cta {
+  text-align: center;
+  margin-top: 80px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards 0.8s;
+}
+
+.shop-cta .btn {
+  padding: 18px 56px;
+  background: var(--gold);
+  color: var(--off-white);
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: none;
+  transition: all 0.3s ease;
+}
+
+.shop-cta .btn::before {
+  display: none;
+}
+
+.shop-cta .btn:hover {
+  background: #c9a677;
+  color: var(--off-white);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(184, 149, 106, 0.3);
 }
 
 @media (max-width: 1200px) {
@@ -1938,6 +1978,10 @@ a.btn {
   border-radius: 12px;
   padding: 24px 32px;
   min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .countdown-number {
@@ -1946,6 +1990,9 @@ a.btn {
   color: var(--cream);
   line-height: 1;
   margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+  width: 100%;
+  text-align: center;
 }
 
 .countdown-label {

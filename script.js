@@ -2,6 +2,8 @@ function initPreloader() {
   const preloader = document.getElementById("preloader");
   const percentage = document.getElementById("preloaderPercentage");
   const progressCircle = document.getElementById("progressCircle");
+  const preloaderContent = document.querySelector(".preloader-content");
+  const preloaderHand = document.getElementById("preloaderHand");
 
   document.body.classList.add("loading");
 
@@ -17,13 +19,35 @@ function initPreloader() {
       if (currentProgress > targetProgress) currentProgress = targetProgress;
 
       const progress = Math.floor(currentProgress);
-      percentage.textContent = `${progress}%`;
+      percentage.textContent = progress;
 
       const offset = circumference - (currentProgress / 100) * circumference;
       progressCircle.style.strokeDashoffset = offset;
 
+      const rotation = (currentProgress / 100) * 360;
+      const handHeight = window.innerWidth <= 480 ? 80 : 100;
+      preloaderHand.style.transform = `translate(-50%, -${handHeight}px) rotate(${rotation}deg)`;
+
       requestAnimationFrame(updateProgress);
     } else {
+      preloaderContent.style.transition = "transform 0.5s ease";
+      preloaderContent.style.transform = "scale(1.5)";
+      percentage.style.transition = "color 0.5s ease";
+
+      // 1. Hand fades out first
+      setTimeout(() => {
+        preloaderHand.style.transition = "opacity 0.3s ease";
+        preloaderHand.style.opacity = "0";
+      }, 800);
+
+      // 2. Progress circle fades out
+      setTimeout(() => {
+        const circlesSvg = document.querySelector(".preloader-circle");
+        circlesSvg.style.transition = "opacity 0.3s ease";
+        circlesSvg.style.opacity = "0";
+      }, 800);
+
+      // 3. Everything fades out, leaving "33" visible briefly
       setTimeout(() => {
         document.body.classList.remove("loading");
         document.body.classList.add("loaded");
@@ -33,7 +57,7 @@ function initPreloader() {
           preloader.remove();
           document.body.style.overflow = "";
         }, 800);
-      }, 300);
+      }, 1100);
     }
   }
 
