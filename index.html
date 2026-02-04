@@ -103,6 +103,22 @@
     </script>
   </head>
   <body>
+    <div class="preloader" id="preloader">
+      <div class="preloader-content">
+        <svg class="preloader-circle" viewBox="0 0 200 200">
+          <circle class="preloader-track" cx="100" cy="100" r="85" />
+          <circle
+            class="preloader-progress"
+            cx="100"
+            cy="100"
+            r="85"
+            id="progressCircle"
+          />
+        </svg>
+        <div class="preloader-percentage" id="preloaderPercentage">0%</div>
+      </div>
+    </div>
+
     <div class="top-logo-brand" id="topLogoBrand">
       <a href="#home" class="brand-logo-link">
         <img
@@ -115,7 +131,7 @@
 
     <section class="hero" id="home">
       <div class="logo-watermark" id="logoWatermark">
-        <img src="./Assets/Logomark NC - 1.png" alt="ThirtyThree Logo" />
+        <img src="./Assets/Logomark 01.png" alt="ThirtyThree Logo" />
       </div>
 
       <div class="hero-label hero-label-top-left">
@@ -156,31 +172,50 @@
     <section class="shop-section" id="shop">
       <div class="shop-container">
         <div class="section-header">
-          <h2 class="section-title">The Collection</h2>
-          <p class="section-subtitle">
-            Precision meets heritage in every timepiece
-          </p>
+          <h2 class="section-title">Founders' Collection</h2>
+        </div>
+
+        <div class="size-divider">
+          <span class="size-label">41MM</span>
         </div>
 
         <div class="watch-grid">
           <div class="watch-card">
             <div class="watch-card-image">
               <img
-                src="Assets/Black men front 02.png"
-                alt="ThirtyThree Heritage Black"
+                src="./Assets/Chapter 1.1 Noir/Noir M main 01.png"
+                alt="Chapter 1.1 - Noir"
                 class="main-image"
               />
               <img
-                src="Assets/Black men hover 01.png"
-                alt="ThirtyThree Heritage Black Side View"
+                src="./Assets/Chapter 1.1 Noir/Noir M hover 01.png"
+                alt="Chapter 1.1 - Noir Hover"
                 class="hover-image"
               />
             </div>
             <div class="watch-card-info">
-              <h3 class="watch-name">ThirtyThree Black</h3>
-              <div class="watch-specs">
-                <span class="watch-type">Mechanical</span>
-                <span class="watch-variants">+ 3 models</span>
+              <h3 class="watch-name">Chapter 1.1 - Noir</h3>
+              <div class="watch-specs-grid">
+                <div class="spec-item">
+                  <span class="spec-label">STRAP:</span>
+                  <span class="spec-value">20MM WIDE</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">PLATING:</span>
+                  <span class="spec-value">PVD</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">GLASS:</span>
+                  <span class="spec-value">SAPPHIRE</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">MOVEMENT:</span>
+                  <span class="spec-value">JAPAN MIYOTA 8257 GOLD</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">WATER RESISTANCE:</span>
+                  <span class="spec-value">5ATM</span>
+                </div>
               </div>
             </div>
           </div>
@@ -188,21 +223,39 @@
           <div class="watch-card">
             <div class="watch-card-image">
               <img
-                src="Assets/Blue men front 02.png"
-                alt="ThirtyThree Heritage Blue"
+                src="./Assets/Chapter 1.2 Marine/Marine M main 01.png"
+                alt="Chapter 1.2 - Marine"
                 class="main-image"
               />
               <img
-                src="Assets/Blue men hover 01.png"
-                alt="ThirtyThree Heritage Blue Side View"
+                src="./Assets/Chapter 1.2 Marine/Marine W hover 01.png"
+                alt="Chapter 1.2 - Marine Hover"
                 class="hover-image"
               />
             </div>
             <div class="watch-card-info">
-              <h3 class="watch-name">ThirtyThree Blue</h3>
-              <div class="watch-specs">
-                <span class="watch-type">Mechanical</span>
-                <span class="watch-variants">+ 5 models</span>
+              <h3 class="watch-name">Chapter 1.2 - Marine</h3>
+              <div class="watch-specs-grid">
+                <div class="spec-item">
+                  <span class="spec-label">STRAP:</span>
+                  <span class="spec-value">20MM WIDE</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">PLATING:</span>
+                  <span class="spec-value">PVD</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">GLASS:</span>
+                  <span class="spec-value">SAPPHIRE</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">MOVEMENT:</span>
+                  <span class="spec-value">JAPAN MIYOTA 8257 GOLD</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">WATER RESISTANCE:</span>
+                  <span class="spec-value">5ATM</span>
+                </div>
               </div>
             </div>
           </div>
@@ -210,21 +263,85 @@
           <div class="watch-card">
             <div class="watch-card-image">
               <img
-                src="Assets/Brown men front 02.png"
-                alt="ThirtyThree Heritage Brown"
+                src="./Assets/Chapter 1.3 Cognac/Cognac M main 01.png"
+                alt="Chapter 1.3 - Cognac"
                 class="main-image"
               />
               <img
-                src="Assets/Brown men hover 01.png"
-                alt="ThirtyThree Heritage Brown Side View"
+                src="./Assets/Chapter 1.3 Cognac/Cognac M hover 01.png"
+                alt="Chapter 1.3 - Cognac Hover"
                 class="hover-image"
               />
             </div>
             <div class="watch-card-info">
-              <h3 class="watch-name">ThirtyThree Brown</h3>
-              <div class="watch-specs">
-                <span class="watch-type">Mechanical</span>
-                <span class="watch-variants">+ 4 models</span>
+              <h3 class="watch-name">Chapter 1.3 - Cognac</h3>
+              <div class="watch-specs-grid">
+                <div class="spec-item">
+                  <span class="spec-label">STRAP:</span>
+                  <span class="spec-value">20MM WIDE</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">PLATING:</span>
+                  <span class="spec-value">PVD</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">GLASS:</span>
+                  <span class="spec-value">SAPPHIRE</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">MOVEMENT:</span>
+                  <span class="spec-value">JAPAN MIYOTA 8257 GOLD</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">WATER RESISTANCE:</span>
+                  <span class="spec-value">5ATM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="size-divider">
+          <span class="size-label">34MM</span>
+        </div>
+
+        <div class="watch-grid">
+          <div class="watch-card">
+            <div class="watch-card-image">
+              <img
+                src="./Assets/Chapter 1.1 Noir/Noir W main 01.png"
+                alt="Chapter 1.1 - Noir"
+                class="main-image"
+              />
+              <img
+                src="./Assets/Chapter 1.1 Noir/Noir W hover 01.png"
+                alt="Chapter 1.1 - Noir Hover"
+                class="hover-image"
+              />
+            </div>
+            <div class="watch-card-info">
+              <h3 class="watch-name">Chapter 1.1 - Noir</h3>
+              <div class="watch-specs-grid">
+                <div class="spec-item">
+                  <span class="spec-label">STRAP:</span>
+                  <span class="spec-value">16MM WIDE</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">PLATING:</span>
+                  <span class="spec-value">PVD</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">GLASS:</span>
+                  <span class="spec-value">SAPPHIRE</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">MOVEMENT:</span>
+                  <span class="spec-value">JAPAN MIYOTA 8257 GOLD</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">WATER RESISTANCE:</span>
+                  <span class="spec-value">5ATM</span>
+                </div>
               </div>
             </div>
           </div>
@@ -232,21 +349,39 @@
           <div class="watch-card">
             <div class="watch-card-image">
               <img
-                src="Assets/Black women front 02.png"
-                alt="ThirtyThree Heritage Black"
+                src="./Assets/Chapter 1.2 Marine/Marine W main 01.png"
+                alt="Chapter 1.2 - Marine"
                 class="main-image"
               />
               <img
-                src="Assets/Black women hover 01.png"
-                alt="ThirtyThree Heritage Black Side View"
+                src="./Assets/Chapter 1.2 Marine/Marine W hover 01.png"
+                alt="Chapter 1.2 - Marine Hover"
                 class="hover-image"
               />
             </div>
             <div class="watch-card-info">
-              <h3 class="watch-name">ThirtyThree Black</h3>
-              <div class="watch-specs">
-                <span class="watch-type">Mechanical</span>
-                <span class="watch-variants">+ 3 models</span>
+              <h3 class="watch-name">Chapter 1.2 - Marine</h3>
+              <div class="watch-specs-grid">
+                <div class="spec-item">
+                  <span class="spec-label">STRAP:</span>
+                  <span class="spec-value">16MM WIDE</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">PLATING:</span>
+                  <span class="spec-value">PVD</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">GLASS:</span>
+                  <span class="spec-value">SAPPHIRE</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">MOVEMENT:</span>
+                  <span class="spec-value">JAPAN MIYOTA 8257 GOLD</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">WATER RESISTANCE:</span>
+                  <span class="spec-value">5ATM</span>
+                </div>
               </div>
             </div>
           </div>
@@ -254,44 +389,94 @@
           <div class="watch-card">
             <div class="watch-card-image">
               <img
-                src="Assets/Blue women front 02.png"
-                alt="ThirtyThree Heritage Blue"
+                src="./Assets/Chapter 1.3 Cognac/Cognac W main 01.png"
+                alt="Chapter 1.3 - Cognac"
                 class="main-image"
               />
               <img
-                src="Assets/Blue women hover 01.png"
-                alt="ThirtyThree Heritage Blue Side View"
+                src="./Assets/Chapter 1.3 Cognac/Cognac W hover 01.png"
+                alt="Chapter 1.3 - Cognac Hover"
                 class="hover-image"
               />
             </div>
             <div class="watch-card-info">
-              <h3 class="watch-name">ThirtyThree Blue</h3>
-              <div class="watch-specs">
-                <span class="watch-type">Mechanical</span>
-                <span class="watch-variants">+ 5 models</span>
+              <h3 class="watch-name">Chapter 1.3 - Cognac</h3>
+              <div class="watch-specs-grid">
+                <div class="spec-item">
+                  <span class="spec-label">STRAP:</span>
+                  <span class="spec-value">16MM WIDE</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">PLATING:</span>
+                  <span class="spec-value">PVD</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">GLASS:</span>
+                  <span class="spec-value">SAPPHIRE</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">MOVEMENT:</span>
+                  <span class="spec-value">JAPAN MIYOTA 8257 GOLD</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">WATER RESISTANCE:</span>
+                  <span class="spec-value">5ATM</span>
+                </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="watch-card">
-            <div class="watch-card-image">
+        <div class="shop-cta">
+          <a href="#" class="btn btn-primary btn-lg">Pre-Order Now</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="lifestyle-section">
+      <div class="lifestyle-container">
+        <div class="lifestyle-content">
+          <div class="lifestyle-text">
+            <h2 class="lifestyle-title">
+              Timeless design,<br />
+              <span class="lifestyle-title-bold">reimagined.</span>
+            </h2>
+            <p class="lifestyle-description">
+              A contemporary interpretation of classic horology, and traditional
+              watchmaking, reimagined for a new era.
+            </p>
+          </div>
+
+          <div class="lifestyle-grid">
+            <div class="lifestyle-image lifestyle-image-1">
               <img
-                src="Assets/Brown women front 02.png"
-                alt="ThirtyThree Heritage Brown"
-                class="main-image"
-              />
-              <img
-                src="Assets/Brown women hover 01.png"
-                alt="ThirtyThree Heritage Brown Side View"
-                class="hover-image"
+                src="./Assets/Lifestyle/Lifestyle 01.png"
+                alt="Watch lifestyle"
               />
             </div>
-            <div class="watch-card-info">
-              <h3 class="watch-name">ThirtyThree Brown</h3>
-              <div class="watch-specs">
-                <span class="watch-type">Mechanical</span>
-                <span class="watch-variants">+ 4 models</span>
-              </div>
+            <div class="lifestyle-image lifestyle-image-2">
+              <img
+                src="./Assets/Lifestyle/Lifestyle 02.png"
+                alt="Watch lifestyle"
+              />
+            </div>
+            <div class="lifestyle-image lifestyle-image-3">
+              <img
+                src="./Assets/Lifestyle/Lifestyle 03.png"
+                alt="Watch lifestyle"
+              />
+            </div>
+            <div class="lifestyle-image lifestyle-image-4">
+              <img
+                src="./Assets/Lifestyle/Lifestyle 04.png"
+                alt="Watch lifestyle"
+              />
+            </div>
+            <div class="lifestyle-image lifestyle-image-5">
+              <img
+                src="./Assets/Lifestyle/Lifestyle 05.png"
+                alt="Watch lifestyle"
+              />
             </div>
           </div>
         </div>
@@ -300,62 +485,38 @@
 
     <footer class="footer">
       <div class="footer-container">
-        <div class="footer-top">
-          <div class="footer-brand">
-            <h3 class="footer-logo">Thirty Three</h3>
-            <p class="footer-tagline">Timeless African Craftsmanship</p>
-          </div>
+        <h2 class="footer-title">Coming Soon</h2>
+        <p class="footer-subtitle">
+          A new way to explore our timepieces arrives in
+          <span class="footer-days-text">27</span> days.
+        </p>
 
-          <div class="footer-links">
-            <h4 class="footer-heading">Collection</h4>
-            <ul>
-              <li><a href="#shop">All Watches</a></li>
-              <li><a href="#shop">Black Collection</a></li>
-              <li><a href="#shop">Blue Collection</a></li>
-              <li><a href="#shop">Brown Collection</a></li>
-            </ul>
-          </div>
+        <a href="#" class="footer-cta-button">Pre-Order Now</a>
 
-          <div class="footer-links">
-            <h4 class="footer-heading">About</h4>
-            <ul>
-              <li><a href="#about">Our Story</a></li>
-              <li><a href="#about">The 33 Fund</a></li>
-              <li><a href="#about">Craftsmanship</a></li>
-            </ul>
-          </div>
+        <div class="footer-date">03/03/2026</div>
 
-          <div class="footer-newsletter">
-            <h4 class="footer-heading">Stay Connected</h4>
-            <p class="newsletter-text">
-              Join our community for updates and exclusive offers.
-            </p>
-            <form class="newsletter-form">
-              <input
-                type="email"
-                placeholder="Your email"
-                class="newsletter-input"
-                required
-              />
-              <button type="submit" class="newsletter-button">Subscribe</button>
-            </form>
+        <div class="footer-countdown">
+          <div class="countdown-box">
+            <div class="countdown-number countdown-number-days">27</div>
+            <div class="countdown-label">DAYS</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number countdown-number-hours">10</div>
+            <div class="countdown-label">HRS</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number countdown-number-minutes">59</div>
+            <div class="countdown-label">MIN</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number countdown-number-seconds">45</div>
+            <div class="countdown-label">SEC</div>
           </div>
         </div>
 
-        <div class="footer-bottom">
-          <p class="footer-copyright">
-            © 2026 ThirtyThree Collection. All rights reserved.
-          </p>
-
-          <div class="footer-social">
-            <a href="#" aria-label="Instagram">Instagram</a>
-            <a href="#" aria-label="Facebook">Facebook</a>
-            <a href="#" aria-label="Twitter">Twitter</a>
-          </div>
-        </div>
+        <a href="#" class="footer-instagram">INSTAGRAM</a>
       </div>
     </footer>
-
     <script src="script.js"></script>
   </body>
 </html>

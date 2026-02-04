@@ -1,4 +1,46 @@
+function initPreloader() {
+  const preloader = document.getElementById("preloader");
+  const percentage = document.getElementById("preloaderPercentage");
+  const progressCircle = document.getElementById("progressCircle");
+
+  document.body.classList.add("loading");
+
+  const circumference = 534;
+  let currentProgress = 0;
+  const targetProgress = 33;
+  const duration = 2000;
+  const increment = targetProgress / (duration / 40);
+
+  function updateProgress() {
+    if (currentProgress < targetProgress) {
+      currentProgress += increment;
+      if (currentProgress > targetProgress) currentProgress = targetProgress;
+
+      const progress = Math.floor(currentProgress);
+      percentage.textContent = `${progress}%`;
+
+      const offset = circumference - (currentProgress / 100) * circumference;
+      progressCircle.style.strokeDashoffset = offset;
+
+      requestAnimationFrame(updateProgress);
+    } else {
+      setTimeout(() => {
+        document.body.classList.remove("loading");
+        document.body.classList.add("loaded");
+        preloader.classList.add("hidden");
+
+        setTimeout(() => {
+          preloader.remove();
+          document.body.style.overflow = "";
+        }, 800);
+      }, 300);
+    }
+  }
+
+  updateProgress();
+}
 document.addEventListener("DOMContentLoaded", function () {
+  initPreloader();
   const CONFIG = {
     HERO_FRAMES: 51,
     LOGO_SCROLL_THRESHOLD: 50,
@@ -216,6 +258,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("ThirtyThree Collection - Initialized");
   }
+
+  function initCountdown() {
+    const targetDate = new Date("2026-03-03T00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.querySelector(".countdown-number-days").textContent = days;
+      document.querySelector(".countdown-number-hours").textContent = hours;
+      document.querySelector(".countdown-number-minutes").textContent = minutes;
+      document.querySelector(".countdown-number-seconds").textContent = seconds;
+      document.querySelector(".footer-days-text").textContent = days;
+
+      if (distance < 0) {
+        clearInterval(countdownInterval);
+        document.querySelector(".footer-subtitle").textContent =
+          "Now available!";
+      }
+    }
+
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
+  }
+
+  initCountdown();
 
   init();
   window.dispatchEvent(new Event("scroll"));
