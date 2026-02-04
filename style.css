@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -40,7 +42,7 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   background: var(--off-white);
   color: var(--cream);
   overflow-x: hidden;
@@ -58,7 +60,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-weight: 700;
   line-height: 1.2;
   color: var(--navy);
@@ -98,7 +100,7 @@ h6 {
 }
 
 p {
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: var(--fs-base);
   font-weight: 400;
   line-height: 1.6;
@@ -107,7 +109,7 @@ p {
 }
 
 .text-display {
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: var(--fs-8xl);
   font-weight: 700;
   letter-spacing: -3px;
@@ -115,7 +117,7 @@ p {
 }
 
 .text-title {
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: var(--fs-6xl);
   font-weight: 700;
   letter-spacing: -1px;
@@ -291,7 +293,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 32px 20px;
+  padding: 28px 20px;
   background: rgba(238, 238, 238, 0.95);
   backdrop-filter: blur(12px);
   transition: all 0.4s cubic-bezier(0.4, 0.2, 1);
@@ -318,7 +320,7 @@ p {
 }
 
 .brand-logo {
-  height: 38px;
+  height: 30px;
   width: auto;
   display: block;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -326,7 +328,7 @@ p {
 }
 
 .top-logo-brand.scrolled .brand-logo {
-  height: 29px;
+  height: 26px;
 }
 
 @media (max-width: 900px) {
@@ -339,11 +341,11 @@ p {
   }
 
   .brand-logo {
-    height: 32px;
+    height: 28px;
   }
 
   .top-logo-brand.scrolled .brand-logo {
-    height: 26px;
+    height: 25px;
   }
 }
 
@@ -357,8 +359,12 @@ p {
   }
 
   .brand-logo {
-    height: 29px;
+    height: 25px;
     max-width: calc(100vw - 32px);
+  }
+
+  .top-logo-brand.scrolled .brand-logo {
+    height: 22px;
   }
 }
 
@@ -372,11 +378,11 @@ p {
   }
 
   .brand-logo {
-    height: 26px;
+    height: 22px;
   }
 
   .top-logo-brand.scrolled .brand-logo {
-    height: 21px;
+    height: 18px;
   }
 }
 
@@ -648,11 +654,11 @@ a.btn {
 
 .logo-watermark {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
+  width: 170px;
+  height: 170px;
   opacity: 0.04;
   pointer-events: none;
   z-index: 1;
@@ -676,10 +682,7 @@ a.btn {
   font-weight: 400;
   color: var(--navy);
   line-height: 1.5;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 .hero-label span {
@@ -713,10 +716,7 @@ a.btn {
   letter-spacing: 1px;
   color: var(--navy);
   line-height: 1.5;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 .headline-line {
@@ -736,8 +736,8 @@ a.btn {
   }
 
   .logo-watermark {
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
   }
 
   .hero-label {
@@ -780,8 +780,8 @@ a.btn {
   }
 
   .logo-watermark {
-    width: 150px;
-    height: 150px;
+    width: 110px;
+    height: 110px;
     opacity: 0.03;
   }
 
@@ -825,8 +825,8 @@ a.btn {
   }
 
   .logo-watermark {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
   }
 
   .hero-label {
@@ -866,7 +866,7 @@ a.btn {
 
 .watch-sequence-section {
   position: relative;
-  min-height: 90vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -886,7 +886,7 @@ a.btn {
 }
 @media (max-width: 1200px) {
   .watch-sequence-section {
-    min-height: 90vh;
+    min-height: 10vh;
     padding: 0;
     margin-top: 0;
   }
@@ -905,7 +905,7 @@ a.btn {
 
 @media (max-width: 768px) {
   .watch-sequence-section {
-    min-height: 80vh;
+    min-height: 10vh;
     padding: 0;
     margin-top: 0;
   }
@@ -924,7 +924,7 @@ a.btn {
 
 @media (max-width: 480px) {
   .watch-sequence-section {
-    min-height: 50vh;
+    min-height: 10vh;
     padding: 0;
     margin-top: 0;
   }
@@ -1034,7 +1034,7 @@ a.btn {
 }
 
 .section-title {
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 32px;
   font-weight: 700;
   color: var(--navy);
@@ -1157,7 +1157,7 @@ a.btn {
 }
 
 .watch-name {
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 20px;
   font-weight: 600;
   color: var(--navy);
@@ -1331,7 +1331,7 @@ a.btn {
 }
 
 .about-title {
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 52px;
   font-weight: 700;
   color: var(--navy);
@@ -1371,7 +1371,7 @@ a.btn {
 }
 
 .fund-title {
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 24px;
   font-weight: 600;
   color: var(--gold);
@@ -1493,7 +1493,7 @@ a.btn {
 }
 
 .footer-logo {
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 24px;
   font-weight: 600;
   color: var(--cream);
@@ -1588,7 +1588,7 @@ a.btn {
 }
 
 .footer-heading {
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: var(--cream);
