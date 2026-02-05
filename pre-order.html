@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pre-Order | ThirtyThree Collection</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./Assets/Logomark - Black-1.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="top-logo-brand" id="topLogoBrand">
+      <a href="index.html" class="brand-logo-link">
+        <img
+          src="./Assets/logo text - rexton.svg"
+          alt="ThirtyThree Collection"
+          class="brand-logo"
+        />
+      </a>
+    </div>
+
+    <section class="preorder-section">
+      <div class="preorder-container">
+        <div class="preorder-header">
+          <h1 class="preorder-title">Your new timepiece awaits</h1>
+          <p class="preorder-subtitle">Pick your face size and colour.</p>
+        </div>
+
+        <div class="preorder-content">
+          <div class="preorder-image-section">
+            <div class="watch-display-area">
+              <img
+                src="./Assets/Chapter 1.1 Noir/Noir M main 01.png"
+                alt="Selected watch"
+                class="selected-watch-image"
+                id="selectedWatchImage"
+              />
+            </div>
+            <div class="image-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+
+          <div class="preorder-config-section">
+            <div class="config-group">
+              <h2 class="config-label">
+                Face. <span class="config-label-light">Choose your size.</span>
+              </h2>
+
+              <div class="size-options">
+                <div class="size-option active" data-size="41mm">
+                  <div class="size-option-content">
+                    <span class="size-option-name">41mm face</span>
+                    <span class="size-option-detail"
+                      >STRAP:<br />20MM WIDE</span
+                    >
+                  </div>
+                </div>
+
+                <div class="size-option" data-size="34mm">
+                  <div class="size-option-content">
+                    <span class="size-option-name">34mm face</span>
+                    <span class="size-option-detail"
+                      >STRAP:<br />16MM WIDE</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="config-group">
+              <h2 class="config-label">
+                Color.
+                <span class="config-label-light">Pick your favorite.</span>
+              </h2>
+
+              <p class="selected-color-name">Color - Noir</p>
+
+              <div class="color-options">
+                <div
+                  class="color-swatch active"
+                  data-color="noir"
+                  style="background: #1a1a1a"
+                ></div>
+                <div
+                  class="color-swatch"
+                  data-color="marine"
+                  style="background: #2c3e5a"
+                ></div>
+                <div
+                  class="color-swatch"
+                  data-color="cognac"
+                  style="background: #6b3f3a"
+                ></div>
+              </div>
+            </div>
+
+            <div class="config-group price-section">
+              <div class="price-display">
+                <div class="price-amount">$233</div>
+                <div class="price-discount">Get $33 off by pre-ordering</div>
+              </div>
+
+              <button class="preorder-cta-button">Pre-Order Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

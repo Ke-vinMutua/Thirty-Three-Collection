@@ -5,6 +5,14 @@ function initPreloader() {
   const preloaderContent = document.querySelector(".preloader-content");
   const preloaderHand = document.getElementById("preloaderHand");
 
+  if (sessionStorage.getItem("preloaderShown")) {
+    document.body.classList.remove("loading");
+    document.body.classList.add("loaded");
+    preloader.remove();
+    return;
+  }
+
+  sessionStorage.setItem("preloaderShown", "true");
   document.body.classList.add("loading");
 
   const circumference = 534;
@@ -34,20 +42,17 @@ function initPreloader() {
       preloaderContent.style.transform = "scale(1.5)";
       percentage.style.transition = "color 0.5s ease";
 
-      // 1. Hand fades out first
       setTimeout(() => {
         preloaderHand.style.transition = "opacity 0.3s ease";
         preloaderHand.style.opacity = "0";
       }, 800);
 
-      // 2. Progress circle fades out
       setTimeout(() => {
         const circlesSvg = document.querySelector(".preloader-circle");
         circlesSvg.style.transition = "opacity 0.3s ease";
         circlesSvg.style.opacity = "0";
       }, 800);
 
-      // 3. Everything fades out, leaving "33" visible briefly
       setTimeout(() => {
         document.body.classList.remove("loading");
         document.body.classList.add("loaded");
@@ -64,11 +69,17 @@ function initPreloader() {
   updateProgress();
 }
 document.addEventListener("DOMContentLoaded", function () {
-  initPreloader();
+  const preloader = document.getElementById("preloader");
+  if (preloader) {
+    initPreloader();
+  } else {
+    document.body.classList.remove("loading");
+    document.body.classList.add("loaded");
+  }
+
   const CONFIG = {
     HERO_FRAMES: 51,
     LOGO_SCROLL_THRESHOLD: 50,
-    WATCH_SWITCH_INTERVALS: [400, 800],
   };
 
   const elements = {
@@ -76,11 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
     logoWatermark: document.getElementById("logoWatermark"),
     heroWatchSequence: document.getElementById("heroWatchSequence"),
     watchSequenceSection: document.getElementById("watchSequence"),
-    watchShowcaseSection: document.querySelector(".watch-showcase"),
-    watchImages: document.querySelectorAll(".watch-image"),
   };
-
-  let currentWatch = 0;
 
   function getFrameFilename(frameNumber) {
     const paddedNumber = String(frameNumber).padStart(2, "0");
@@ -110,35 +117,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const progress = Math.min(1, (scrolled / totalScrollable) * 1.7);
 
     return Math.max(0, Math.min(1, progress));
-  }
-
-  function switchWatch(index) {
-    if (
-      index < 0 ||
-      index >= elements.watchImages.length ||
-      index === currentWatch
-    ) {
-      return;
-    }
-
-    if (elements.watchImages[currentWatch]) {
-      elements.watchImages[currentWatch].classList.remove("active");
-    }
-
-    if (elements.watchImages[index]) {
-      elements.watchImages[index].classList.add("active");
-    }
-
-    currentWatch = index;
-  }
-
-  function getShowcaseScrollPosition() {
-    if (!elements.watchShowcaseSection) return -1;
-
-    const showcaseTop = elements.watchShowcaseSection.offsetTop;
-    const currentScroll = window.scrollY;
-
-    return currentScroll - showcaseTop;
   }
 
   function updateTopLogo(scrollY) {
@@ -173,29 +151,6 @@ document.addEventListener("DOMContentLoaded", function () {
     elements.logoWatermark.style.opacity = opacityValue;
   }
 
-  function updateWatchShowcase() {
-    if (elements.watchImages.length === 0) return;
-
-    const showcaseScroll = getShowcaseScrollPosition();
-
-    if (showcaseScroll < 0) {
-      if (currentWatch !== 0) {
-        switchWatch(0);
-      }
-      return;
-    }
-
-    const [interval1, interval2] = CONFIG.WATCH_SWITCH_INTERVALS;
-
-    if (showcaseScroll < interval1) {
-      switchWatch(0);
-    } else if (showcaseScroll >= interval1 && showcaseScroll < interval2) {
-      switchWatch(1);
-    } else if (showcaseScroll >= interval2) {
-      switchWatch(2);
-    }
-  }
-
   let ticking = false;
 
   window.addEventListener("scroll", () => {
@@ -209,8 +164,6 @@ document.addEventListener("DOMContentLoaded", function () {
         updateWatchSequence(sequenceProgress);
 
         updateLogoWatermark(scrollY);
-
-        updateWatchShowcase();
 
         ticking = false;
       });
@@ -263,23 +216,6 @@ document.addEventListener("DOMContentLoaded", function () {
       preloadFrames();
     }
 
-    if (elements.watchImages.length > 0) {
-      const hasActiveWatch = Array.from(elements.watchImages).some((watch) =>
-        watch.classList.contains("active"),
-      );
-
-      if (!hasActiveWatch) {
-        elements.watchImages[0].classList.add("active");
-        currentWatch = 0;
-      } else {
-        elements.watchImages.forEach((watch, index) => {
-          if (watch.classList.contains("active")) {
-            currentWatch = index;
-          }
-        });
-      }
-    }
-
     console.log("ThirtyThree Collection - Initialized");
   }
 
@@ -297,16 +233,22 @@ document.addEventListener("DOMContentLoaded", function () {
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      document.querySelector(".countdown-number-days").textContent = days;
-      document.querySelector(".countdown-number-hours").textContent = hours;
-      document.querySelector(".countdown-number-minutes").textContent = minutes;
-      document.querySelector(".countdown-number-seconds").textContent = seconds;
-      document.querySelector(".footer-days-text").textContent = days;
+      const daysEl = document.querySelector(".countdown-number-days");
+      const hoursEl = document.querySelector(".countdown-number-hours");
+      const minutesEl = document.querySelector(".countdown-number-minutes");
+      const secondsEl = document.querySelector(".countdown-number-seconds");
+      const daysTextEl = document.querySelector(".footer-days-text");
+
+      if (daysEl) daysEl.textContent = days;
+      if (hoursEl) hoursEl.textContent = hours;
+      if (minutesEl) minutesEl.textContent = minutes;
+      if (secondsEl) secondsEl.textContent = seconds;
+      if (daysTextEl) daysTextEl.textContent = days;
 
       if (distance < 0) {
         clearInterval(countdownInterval);
-        document.querySelector(".footer-subtitle").textContent =
-          "Now available!";
+        const subtitleEl = document.querySelector(".footer-subtitle");
+        if (subtitleEl) subtitleEl.textContent = "Now available!";
       }
     }
 
@@ -315,7 +257,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   initCountdown();
-
   init();
   window.dispatchEvent(new Event("scroll"));
 });

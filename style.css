@@ -46,6 +46,7 @@ body {
   background: var(--off-white);
   color: var(--cream);
   overflow-x: hidden;
+  overflow-y: auto; /* Add this */
 }
 
 html {
@@ -2068,6 +2069,349 @@ a.btn {
   }
 }
 /* ==================== FOOTER END ==================== */
+
+/* ==================== PRE-ORDER PAGE ==================== */
+
+.preorder-section {
+  background: var(--off-white);
+  padding: 120px 60px 80px;
+  min-height: 100vh;
+}
+
+.preorder-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.preorder-header {
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.preorder-title {
+  font-family: "Work Sans", sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 12px;
+  letter-spacing: 0;
+}
+
+.preorder-subtitle {
+  font-size: 16px;
+  color: rgba(26, 35, 50, 0.6);
+  margin: 0;
+}
+
+.preorder-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.preorder-image-section {
+  background: #f5f5f5;
+  border-radius: 16px;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+  top: 120px;
+}
+
+.watch-display-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+}
+
+.selected-watch-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.15));
+}
+
+.image-dots {
+  display: flex;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(26, 35, 50, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: var(--navy);
+  width: 28px;
+  border-radius: 5px;
+}
+
+.preorder-config-section {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.config-group {
+  border-bottom: 1px solid rgba(26, 35, 50, 0.1);
+  padding-bottom: 32px;
+}
+
+.config-group:last-child {
+  border-bottom: none;
+}
+
+.config-label {
+  font-family: "Work Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+
+.config-label-light {
+  font-weight: 300;
+  color: rgba(26, 35, 50, 0.5);
+}
+
+.size-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.size-option {
+  border: 2px solid rgba(26, 35, 50, 0.15);
+  border-radius: 12px;
+  padding: 24px 28px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.size-option:hover {
+  border-color: var(--gold);
+}
+
+.size-option.active {
+  border-color: var(--gold);
+  background: rgba(184, 149, 106, 0.05);
+}
+
+.size-option-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.size-option-name {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.size-option-detail {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: rgba(26, 35, 50, 0.5);
+  text-align: right;
+  line-height: 1.4;
+}
+
+.selected-color-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+
+.color-options {
+  display: flex;
+  gap: 16px;
+}
+
+.color-swatch {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+}
+
+.color-swatch.active {
+  border-color: var(--gold);
+  box-shadow:
+    0 0 0 2px var(--off-white),
+    0 0 0 5px var(--gold);
+}
+
+.price-section {
+  padding-top: 16px;
+}
+
+.price-display {
+  margin-bottom: 28px;
+}
+
+.price-amount {
+  font-size: 56px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.price-discount {
+  font-size: 15px;
+  color: rgba(26, 35, 50, 0.6);
+}
+
+.preorder-cta-button {
+  width: 100%;
+  padding: 20px 48px;
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Work Sans", sans-serif;
+}
+
+.preorder-cta-button:hover {
+  background: #c9a677;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(184, 149, 106, 0.3);
+}
+
+@media (max-width: 1200px) {
+  .preorder-content {
+    gap: 60px;
+  }
+
+  .preorder-image-section {
+    padding: 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  .preorder-section {
+    padding: 100px 40px 60px;
+  }
+
+  .preorder-content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .preorder-image-section {
+    position: static;
+    padding: 40px;
+  }
+
+  .watch-display-area {
+    min-height: 400px;
+  }
+
+  .preorder-title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .preorder-section {
+    padding: 80px 24px 60px;
+  }
+
+  .preorder-title {
+    font-size: 36px;
+  }
+
+  .preorder-image-section {
+    padding: 32px;
+  }
+
+  .watch-display-area {
+    min-height: 350px;
+  }
+
+  .config-label {
+    font-size: 20px;
+  }
+
+  .price-amount {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .preorder-section {
+    padding: 70px 16px 50px;
+  }
+
+  .preorder-title {
+    font-size: 28px;
+  }
+
+  .preorder-subtitle {
+    font-size: 14px;
+  }
+
+  .preorder-image-section {
+    padding: 24px;
+    border-radius: 12px;
+  }
+
+  .watch-display-area {
+    min-height: 300px;
+  }
+
+  .size-option {
+    padding: 20px 20px;
+  }
+
+  .size-option-name {
+    font-size: 18px;
+  }
+
+  .size-option-detail {
+    font-size: 10px;
+  }
+
+  .color-swatch {
+    width: 48px;
+    height: 48px;
+  }
+
+  .price-amount {
+    font-size: 40px;
+  }
+
+  .preorder-cta-button {
+    padding: 18px 40px;
+    font-size: 16px;
+  }
+}
+
+/* ==================== PRE-ORDER PAGE END ==================== */
 
 @keyframes fadeInUp {
   from {
