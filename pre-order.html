@@ -33,16 +33,26 @@
           <div class="preorder-image-section">
             <div class="watch-display-area">
               <img
-                src="./Assets/Chapter 1.1 Noir/Noir M main 01.png"
+                src=""
                 alt="Selected watch"
                 class="selected-watch-image"
                 id="selectedWatchImage"
               />
             </div>
             <div class="image-dots">
-              <span class="dot active"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
+              <button
+                class="carousel-arrow carousel-prev"
+                aria-label="Previous image"
+              >
+                ←
+              </button>
+              <div class="dots-container"></div>
+              <button
+                class="carousel-arrow carousel-next"
+                aria-label="Next image"
+              >
+                →
+              </button>
             </div>
           </div>
 
@@ -112,7 +122,39 @@
         </div>
       </div>
     </section>
+    <footer class="footer">
+      <div class="footer-container">
+        <h2 class="footer-title">Coming Soon</h2>
+        <p class="footer-subtitle">
+          A new way to explore our timepieces arrives in
+          <span class="footer-days-text">27</span> days.
+        </p>
 
+        <div class="footer-date">03/03/2026</div>
+
+        <div class="footer-countdown">
+          <div class="countdown-box">
+            <div class="countdown-number countdown-number-days">27</div>
+            <div class="countdown-label">DAYS</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number countdown-number-hours">10</div>
+            <div class="countdown-label">HRS</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number countdown-number-minutes">59</div>
+            <div class="countdown-label">MIN</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number countdown-number-seconds">45</div>
+            <div class="countdown-label">SEC</div>
+          </div>
+        </div>
+
+        <a href="#" class="footer-instagram">INSTAGRAM</a>
+      </div>
+    </footer>
     <script src="script.js"></script>
+    <script src="preorder-interactive.js"></script>
   </body>
 </html>

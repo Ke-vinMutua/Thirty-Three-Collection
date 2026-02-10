@@ -2068,9 +2068,7 @@ a.btn {
     font-size: 10px;
   }
 }
-/* ==================== FOOTER END ==================== */
-
-/* ==================== PRE-ORDER PAGE ==================== */
+/* ==================== FOOTER END ==================== */ /* ==================== PRE-ORDER PAGE ==================== */
 
 .preorder-section {
   background: var(--off-white);
@@ -2127,11 +2125,15 @@ a.btn {
   justify-content: center;
   align-items: center;
   min-height: 500px;
+  background: #f5f5f5;
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
 }
 
 .selected-watch-image {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.15));
 }
@@ -2140,6 +2142,36 @@ a.btn {
   display: flex;
   gap: 12px;
   margin-top: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dots-container {
+  display: flex;
+  gap: 12px;
+}
+
+.carousel-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  color: var(--navy);
+  font-size: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-arrow:hover:not(:disabled) {
+  color: var(--gold);
+  transform: scale(1.15);
+}
+
+.carousel-arrow:disabled {
+  color: rgba(26, 35, 50, 0.2);
+  cursor: default;
 }
 
 .dot {
@@ -2249,6 +2281,11 @@ a.btn {
   border: 3px solid transparent;
   transition: all 0.3s ease;
   position: relative;
+  outline: none;
+}
+
+.color-swatch:focus {
+  outline: none;
 }
 
 .color-swatch:hover {
@@ -2256,10 +2293,13 @@ a.btn {
 }
 
 .color-swatch.active {
-  border-color: var(--gold);
   box-shadow:
     0 0 0 2px var(--off-white),
     0 0 0 5px var(--gold);
+}
+
+.color-swatch.active:focus {
+  outline: none;
 }
 
 .price-section {
@@ -2412,7 +2452,6 @@ a.btn {
 }
 
 /* ==================== PRE-ORDER PAGE END ==================== */
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
