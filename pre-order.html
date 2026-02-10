@@ -20,6 +20,21 @@
           class="brand-logo"
         />
       </a>
+      <a href="#cart" class="cart-icon-link" aria-label="Shopping cart">
+        <svg
+          class="cart-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path
+            d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+          ></path>
+        </svg>
+      </a>
     </div>
 
     <section class="preorder-section">
@@ -65,19 +80,13 @@
               <div class="size-options">
                 <div class="size-option active" data-size="41mm">
                   <div class="size-option-content">
-                    <span class="size-option-name">41mm face</span>
-                    <span class="size-option-detail"
-                      >STRAP:<br />20MM WIDE</span
-                    >
+                    <span class="size-option-name">41mm Face</span>
                   </div>
                 </div>
 
                 <div class="size-option" data-size="34mm">
                   <div class="size-option-content">
-                    <span class="size-option-name">34mm face</span>
-                    <span class="size-option-detail"
-                      >STRAP:<br />16MM WIDE</span
-                    >
+                    <span class="size-option-name">34mm Face</span>
                   </div>
                 </div>
               </div>
@@ -110,9 +119,22 @@
               </div>
             </div>
 
+            <div class="config-group">
+              <h2 class="config-label">Quantity</h2>
+
+              <input
+                type="number"
+                id="quantity-input"
+                class="quantity-input"
+                value="1"
+                min="1"
+                max="999"
+              />
+            </div>
+
             <div class="config-group price-section">
               <div class="price-display">
-                <div class="price-amount">$200</div>
+                <div class="price-amount">$233</div>
                 <div class="price-discount">List Price: $233</div>
               </div>
 

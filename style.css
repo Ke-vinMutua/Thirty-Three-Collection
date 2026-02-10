@@ -409,7 +409,6 @@ body.loaded .watch-sequence-section {
 }
 
 /* ==================== TOP LOGO BRAND SYSTEM ==================== */
-
 .top-logo-brand {
   position: fixed;
   top: 0;
@@ -417,7 +416,7 @@ body.loaded .watch-sequence-section {
   right: 0;
   z-index: 200;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 28px 20px;
   background: rgba(238, 238, 238, 0.95);
@@ -432,7 +431,9 @@ body.loaded .watch-sequence-section {
 }
 
 .brand-logo-link {
-  display: block;
+  flex: 1;
+  display: flex;
+  justify-content: center;
   text-decoration: none;
   transition: transform 0.3s ease;
 }
@@ -457,6 +458,32 @@ body.loaded .watch-sequence-section {
   height: 26px;
 }
 
+.cart-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--navy);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cart-icon {
+  width: 24px;
+  height: 24px;
+  stroke: var(--navy);
+}
+
+.cart-icon-link:hover {
+  color: var(--gold);
+}
+
+.cart-icon-link:hover .cart-icon {
+  stroke: var(--gold);
+}
+
 @media (max-width: 900px) {
   .top-logo-brand {
     padding: 24px 0;
@@ -473,6 +500,16 @@ body.loaded .watch-sequence-section {
   .top-logo-brand.scrolled .brand-logo {
     height: 25px;
   }
+
+  .cart-icon-link {
+    width: 38px;
+    height: 38px;
+  }
+
+  .cart-icon {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -485,12 +522,22 @@ body.loaded .watch-sequence-section {
   }
 
   .brand-logo {
-    height: 25px;
+    height: 23px;
     max-width: calc(100vw - 32px);
   }
 
   .top-logo-brand.scrolled .brand-logo {
-    height: 22px;
+    height: 20px;
+  }
+
+  .cart-icon-link {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cart-icon {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -504,10 +551,20 @@ body.loaded .watch-sequence-section {
   }
 
   .brand-logo {
-    height: 22px;
+    height: 18px;
   }
 
   .top-logo-brand.scrolled .brand-logo {
+    height: 15px;
+  }
+
+  .cart-icon-link {
+    width: 32px;
+    height: 32px;
+  }
+
+  .cart-icon {
+    width: 18px;
     height: 18px;
   }
 }
@@ -2072,7 +2129,9 @@ a.btn {
     font-size: 10px;
   }
 }
-/* ==================== FOOTER END ==================== */ /* ==================== PRE-ORDER PAGE ==================== */
+/* ==================== FOOTER END ==================== */
+
+/* ==================== PRE-ORDER PAGE ==================== */
 
 .preorder-section {
   background: var(--off-white);
@@ -2140,7 +2199,6 @@ a.btn {
 
 .image-dots {
   display: flex;
-  background: #f5f5f5;
   gap: 12px;
   margin-top: 40px;
   align-items: center;
@@ -2219,8 +2277,8 @@ a.btn {
 }
 
 .size-options {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
@@ -2243,7 +2301,7 @@ a.btn {
 
 .size-option-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -2251,15 +2309,6 @@ a.btn {
   font-size: 20px;
   font-weight: 500;
   color: var(--navy);
-}
-
-.size-option-detail {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: rgba(26, 35, 50, 0.5);
-  text-align: right;
-  line-height: 1.4;
 }
 
 .selected-color-name {
@@ -2275,8 +2324,8 @@ a.btn {
 }
 
 .color-swatch {
-  width: 56px;
-  height: 56px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   cursor: pointer;
   border: 3px solid transparent;
@@ -2301,6 +2350,34 @@ a.btn {
 
 .color-swatch.active:focus {
   outline: none;
+}
+
+.quantity-input {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 18px;
+  font-weight: 500;
+  border: 2px solid rgba(26, 35, 50, 0.15);
+  border-radius: 12px;
+  color: var(--navy);
+  font-family: "Work Sans", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.quantity-input:hover {
+  border-color: var(--gold);
+}
+
+.quantity-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 149, 106, 0.1);
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+  -webkit-appearance: inner-spin-button !important;
+  opacity: 1;
 }
 
 .price-section {
@@ -2425,6 +2502,10 @@ a.btn {
     min-height: 300px;
   }
 
+  .size-options {
+    gap: 12px;
+  }
+
   .size-option {
     padding: 20px 20px;
   }
@@ -2433,13 +2514,18 @@ a.btn {
     font-size: 18px;
   }
 
-  .size-option-detail {
-    font-size: 10px;
+  .config-label {
+    font-size: 18px;
+  }
+
+  .quantity-input {
+    padding: 14px 16px;
+    font-size: 16px;
   }
 
   .color-swatch {
-    width: 48px;
-    height: 48px;
+    width: 35px;
+    height: 35px;
   }
 
   .price-amount {
@@ -2453,6 +2539,7 @@ a.btn {
 }
 
 /* ==================== PRE-ORDER PAGE END ==================== */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
